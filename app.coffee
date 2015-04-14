@@ -85,7 +85,7 @@ ninghao::getHref = () ->
 
 
 
-down = new ninghao('http://ninghao.net/course/2094')
+down = new ninghao('http://ninghao.net/course/2034')
 async.series [
   (cb) ->
     down.getCourseUrl(cb)

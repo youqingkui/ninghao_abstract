@@ -96,7 +96,7 @@
     });
   };
 
-  down = new ninghao('http://ninghao.net/course/2094');
+  down = new ninghao('http://ninghao.net/course/2034');
 
   async.series([
     function(cb) {
