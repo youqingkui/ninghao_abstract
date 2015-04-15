@@ -85,6 +85,11 @@ ninghao::getHref = () ->
 
 
 
+
+
+
+
+
 down = new ninghao('http://ninghao.net/course/2034')
 async.series [
   (cb) ->
@@ -94,6 +99,40 @@ async.series [
     down.getHref()
 
 ]
+
+
+class GetCourse
+  constructor: (@starUrl = 'http://ninghao.net/course') ->
+
+  getCourseUrl: (cb) ->
+    request.get @starUrl, (err, res, body) ->
+      return cb(err) if err
+
+      $ = cheerio.load(body)
+      courseArr = $(".course-list .span4 > a")
+
+      return cb("getCourseUrl没有发现链接")if not courseArr.length
+
+      cb(null, courseArr)
+
+  tryDown: (courseArr, cb) ->
+    async.eachSeries courseArr, (item, callback) ->
+      $ = cheerio.load(item)
+      url = $("a").href
+      console.log "tryDown url =>", url
+      down = new ninghao(url)
+
+
+        
+
+
+
+
+
+
+
+
+
 
 
 
