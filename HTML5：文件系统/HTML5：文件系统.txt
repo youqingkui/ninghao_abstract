@@ -1,0 +1,535 @@
+00-00-课程介绍
+
+File System API 可以让我们为 Web 应用，在用户的本地请求一个文件系统。用户允许以后，在这个属于这个应用的，私有的文件系统里面，你可以存储应用的数据。
+你可以在里面创建新的目录，可以重命名，复制，还有删除目录。
+我们也可以为目录添加文件，可以写入内容到文件里面，可以把用户选择的文件复制到这个文件系统里面。
+文件系统 API 提供了方法可以返回文件的地址，你可以把这个地址应用在元素的 src 属性，或者 href 属性上面。
+了解这些操作目录和文件的基本的概念和方法，会对以后开发基于文件系统的 Web 应用非常的有帮助。
+下面我们就一起来学一下 File System API 。
+
+
+01-01-本地文件系统
+
+使用本地的文件系统来存储应用的数据，我们首先得去请求一个本地的文件系统，用到的就是在 LocalFileSystem 对象的 requestFileSystem 方法 … 
+window.requestFileSystem(type, size, successCallback, errorCallback) 
+这个方法定义在了 window 对象下面。它有四个参数 … type 是文件系统的类型，它可以是 PERSISTENT，永久的文件系统，存储在这种类型的文件系统上的数据不会被浏览器自动清除掉 … 
+它也可以是 TEMPORARY，临时的文件系统，存储在临时文件系统上的数据很可能会被浏览器自动清除掉。
+requestFileSystem 方法的第二个参数是 size ，文件系统的尺寸，它的单位是字节，这个 size 就是你的应用可以使用的空间的大小，如果以后空间不够用了，可以再次询问用户，请求一个更大尺寸的存储空间 …  如果把 size 设置成 0 的话，表示不限制空间的大小 … 
+第三个参数是请求成功以后的回调函数，也就是成功以后要做的事情 ，在里面你可以去创建，复制，移动，删除文件或者目录等等 …  最后一个参数是出现错误的时候要做的事情 …
+
+
+01-02-请求文件系统
+
+这个视频我们来看一下怎么样去请求一个文件系统。先打开在演示文档里嵌入的 script.js 这个脚本文件 …  首先我们得解决一下浏览器的兼容问题 … 目录实施 filesystem 的浏览器还比较少，只有 Chrome ，Opera ，还有 Blackberry 浏览器 …   它们都是 webkit 核心的浏览器 .. 
+在使用 requestFileSystem 方法请求文件系统的时候，可能需要在它前面加上一个 webkit 前缀 ..  所以我们可以先这样 …  
+    /* 浏览器兼容 */
+    window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;  
+如果浏览器的 window 对象里有 requestFileSystem  方法就去使用这个方法，没有的话，如果有前面带 webkit 前缀的 requestFileSystem 方法也可以 … 
+这里的两条竖线这个操作符，表示 或 … 
+在下面，我们再去正式请求一个本地的文件系统 … 
+     /* 请求本地文件系统*/
+    window.requestFileSystem(PERSISTENT, 1024 * 1024, onSuccess, onError); 
+PERSISTENT ，表示我们需要一个永久的文件系统来存储数据  …   1024 * 1024 是文件系统的尺寸 … 1024 字节是 1KB，1024KB 是 1MB …  
+onSuccess 是请求成功以后做的事情 … onError 是失败的时候要做的事 …    在上面，我们再去定义这两个函数 …
+onError
+    /* 处理错误信息 */
+    function onError(error) {
+       console.log('错误信息：' + error.name + ' ' + error.message);
+    } 
+在出错的时候，把错误的信息输出到控制台上 …  
+onSuccess
+下面我们再定义一个 onSuccess() ，请求成功以后要做的事情 … 
+    /* 文件系统 */
+    function onSuccess(fileSystem) {
+        console.log(fileSystem);
+    }
+请求成功以后，会返回一个 FileSystem 对象，我们可以把它作为一个参数传递给 onSuccess() 这个函数 …  在这个函数里，我们把 FileSystem 这个对象输出到控制台上看一下 … 
+保存一下，回到浏览器 …  我们需要使用一个支持本地文件系统的浏览器。这里我用的是 Chrome 浏览器 …  打开控制台 … 
+这里，会显示表示文件系统的 FileSystem 对象 …  它有两个属性 … name ，是文件系统的名称 … 这里就是 http_localhost_0:Persistent …  表示这是在 localhost 这个域名下面的一个永久的文件系统 … 
+另外，文件系统对象还有一个 root 属性 …  它其实是文件系统的根目录 …  DirectoryEntry 在本地文件系统里就表示目录的意思，也就是存储文件或者其它目录的那个文件夹 … 
+这个属性的下面还有一些属性  …  fullPath ，表示目录的路径  …  一个 / ，表示根目录 …   isDirectory ，是否是目录，它的值是 true，表示 root 是一个目录 …  isFile 的意思就是，是否是文件 …  root 是一个目录不是文件，所以它的值是 false  ….
+
+
+01-03-询问用户是否允许存储数据
+
+在真正使用本地文件系统的时候，比如在文件系统里创建文件或者目录，我们需要在应用里设置代码，询问用户是允许请求的文件系统 … 用户点击允许以后，我们的应用才能正常去使用文件系统 … 
+打开文档的脚本文件 … 在 onSuccess() 里面，我们先粘贴过来几行代码  …  这几行代码的作用就是在文件系统的根目录下，去创建一个叫 log.txt 的文件 … 以后面我们再具体去解释它的意思 … 
+       /* 创建一个文件在根目录下 */
+        fileSystem.root.getFile('log.txt', {create: true, exclusive: true}, function (fileEntry) {
+            console.log(fileEntry);
+        }, onError); 
+保存 … 回到浏览器 …  打开控制台 …  然后再刷新一下 … 
+在控制台上会显示一条错误信息 … 
+The operation failed because it would cause the application to exceed its storage quota.
+操作失败了，因为操作导致了应用超过了存储配额。 出现这个错误的原因可能是应用真的超过了请求的文件系统的尺寸，或者也可能是因为你没有询问用户是否允许我们的应用使用文件系统来存储数据 … 
+询问用户
+在 webkit 核心的浏览器上询问用户是否允许使用请求的文件系统的存储空间，可以使用 requestQuota() 这个方法 …   这个方法是在 navigator 对象下面的 webkitPersistentStorage 还有 webkitTemporaryStorage  里面 … 
+webkitPersistentStorage 表示永久的存储空间， webkitTemporaryStorage  表示临时的存储空间 … 
+/* 在 Webkit 核心浏览器上请求存储配额
+navigator.webkitPersistentStorage.requestQuota();
+requestQuota() 这个方法有三个参数，第一个参数是请求的空间的大小，第二个参数是成功要做的事，第三个参数是失败的时候要做的事 … 
+想要使用的存储空间是 1024 * 1024 字节 … 也就是 1 兆的空间 ….  成功以后，我们可以去执行一个匿名函数 …  把用户授权使用的空间大小作为这个函数的一个参数 …   在这个函数里面 … 我们再去使用 requestFileSystem() 去请求一个本地的文件系统 … 
+出现错误的时候，让它去执行 onError()  .. 
+  /* 在 Webkit 核心浏览器上访问用户是否允许使用请求的存储空间 */
+    navigator.webkitPersistentStorage.requestQuota(1024 * 1024, function (fileSystemSize) {
+        window.requestFileSystem(PERSISTENT, fileSystemSize, onSuccess, onError);
+    }, onError); 
+然后删除或者注释掉之前用来请求文件系统的这行代码  …  再保存一下这个文件  …    
+回到浏览器上 …  打开控制台 ...  刷新 …   在页面上，会显示一条询问的信息 ..  提醒用户，是否允许 localhost 在本地计算机上永久保存数据 … 
+点击 确定 ….   在控制台上，会输出之前我们想要创建的 log.txt 这个文件对象  ..  表示成功创建了这个空白的文件  …
+
+
+01-04-删除文件系统
+
+在测试的时候，你可能想要删除掉授权使用的文件系统 …     Chrome 浏览器提供了一个界面可以做到 … 
+在地址栏上输入 chrome://settings/cookies .. 
+搜索一下 localhost …    点击选中它 …  再点击这个 文件系统 …   你会看到在 localhost 下面使用的文件系统，这里有一个 持久存储 ..  右边还有一个已经使用的大小 … 
+这里我们删除掉整个 localhost …  点击这个 叉号  … 可以删除掉授权给 localhost 使用的文件系统 …   点击 完成 … 
+新建一个标签  …  再打开之前的页面 … 
+在页面上，又会提示，是否允许 localhost 在本地计算机上永久保存数据 …
+
+
+02-01-目录 - 基本操作 - DirectoryEntry
+
+在文件系统里，DirectoryEntry 对象表示的就是文件系统里的目录 … 目录对象有一些属性和方法 …  比如 getMetadata() 可以得到目录的修改日期和尺寸 ..  moveTo()  可以移动目录到不同的位置 … copyTo 可以复制目录 …  toURL 可以返回目录的路径  … remove() 可以删除目录 … 
+getParent() 能查看目录的父目录 …    创建或者得到一个目录可以使用 getDirectory() 方法 … 
+getFile() 可以获取或者创建文件 .. 
+在后面的视频里我们会详细的介绍一下这些方法的使用 … 
+下面先简单的看一下目录的几个属性和方法 …  目前在我们的文件系统里只有一个 root 目录，也就是文件系统的根目录 … 
+在请求文件系统成功以后执行的函数里面 …  我们把得到的文件系统作为一个参数传给了这个函数 …   下面我们可以把这个文件系统的 root ，根目录输出到控制台上 …   fileSystem.root  … 
+保存，打开浏览器，在控制台上 … 会显示 root 这个目录对象 …  fullPath 属性是目录的路径  …  isDirectory 是否是目录，它的值是 true  …  isFile 是否是文件这个属性的值是 false ，表示 root 不是一个文件 … 
+getMetadata
+下面我们再回去看一下目录的 getMetadata() 方法 … 使用文件系统的 root 目录的 getMetadata() 方法 ..  这个方法有两个参数 … 成功获取以后的回调函数 … 还有获取失败的时候要执行的函数 … 
+        /* 获取根目录的 metadata */
+        fileSystem.root.getMetadata(function (metadata) {
+            console.log(metadata);
+        }, onError); 
+成功以后，我们把获取到的 metadata 对象交给这个函数 …  然后再把它输出到控制台上看一下 …  
+出现错误的时候，让它去执行 onError() … 
+保存 … 回到浏览器 … 刷新 … 
+在控制台，会显示获取到的 metadata 对象 …   这个对象有两个属性 …  modificationTime ..  它的值就是目录被修改的那个时间 …  另外还有一个 size 属性 ..  它是目录的大小 …
+
+
+02-02-创建或查看目录 - getDirectory
+
+创建或者查看目录，可以使用目录的 getDirectory() 方法 ..  这个方法有四个参数 …  要查看或者创建的目录的路径  …  相关的选项 … 成功以后要执行的函数，还有出现错误的时候要执行的函数 … 
+getDirectory(path, options, successCallback, errorCallback);
+创建目录
+下面我们用这个方法去在根目录下创建一个新的目录 .. 
+       /* 创建或获取目录 */
+        fileSystem.root.getDirectory(); 
+要创建的目录是在根目录下，目录的名字是 files  … 相关的选项会放在一个对象里面 ..  这个选项对象有两个属性 …  create   还有 exclusive … 
+这两个属性的值都是布尔值  ….  create 属性的值设置为 true ..  意思就是如果前面这里指定的这个目录不存在的话，就会去创建一个 … 
+exclusive 如果设置成 ture 的话，这样创建的目录必须是唯一的 …  也就是如果想要创建的目录已经存在了 … 就会返回一个错误信息 … 
+这个属性单独没有什么意义，它需要配合 create 属性一起使用 ... 
+这里我们可以把 create 属性设置成 true ... 也就是当目录不存在的时候，就去创建一个 ... 然后把 exclusive 属性的值设置成 false ... 
+第三个创建是成功以后要执行的函数 …. 成功以后，结果会放在一个对象，这个对象就是表示当前创建的这个目录 …  我们可以把它作为这个函数的一个参数  …  这里我们用 dirEntry 表示这个目录对象  ... 
+然后把创建以后的这个目录对象，输出到控制台上 ….   上面再加上一个成功的提示信息 ...  加上创建的这个目录的名字 ...
+最后一个参数是发生错误的时候要执行的函数  …  
+     fileSystem.root.getDirectory('files', {create: true, exclusive: false}, function (dirEntry) {
+          console.log('成功获取或创建了目录：' + dirEntry.name);
+          console.log(dirEntry);
+     }, onError); 
+预览
+保存 …  回到浏览器 … 刷新 ….     在控制台上会显示  ..  成功获取或创建了 files 目录  ....  下面还会输出这个目录对象 ...  （#打开）
+目录的 fullPath 是在根目录下的 files  ...   isDirectory 是 true ... 表示这是一个目录 ...  isFile 是 false ... 表示这不是一个文件 ...
+name 属性的值是目录的名字，这里就是我们创建的 files ... 
+因为我们把 create 属性设置成了 ture ，也就是当目录不存在的时候就会去创建一个 ...  
+回到脚本文件  .... 这里，我们把 exclusive 的属性也设置成 true ...  
+保存 ... 回到浏览器 ... 再刷新一下 ... 
+控制台上会显示一条错误信息 ... 因为我们之前已经创建了 files 目录  ...  如果把 exclusive 属性设置成 true 的话，表示目录必须是唯一的 ...  所以，这里就会显示一个 InvalidModificationError ...  无效的修改错误  ... 
+再回到脚本文件  ...  把 exclusive 属性改成原来的 false ...  保存 ...   
+控制台上会输出 files 这个目录对象 ...  这次我们用的 getDirectory()  方法的作用就是去获取到根目录下的 files 目录，因为我们之前已经创建了这个 files 目录  ... 
+多级目录
+下面我们再看一下创建多级别的目录  ...   (#script.js)   比如我们要创建一个叫 trailer 的目录，把它在 files 目录下面的 video 这个目录里面 ... 
+files/video/trailer
+保存 ...  回到浏览器 ...   在控制台上，会出现一个错误提示 ...  它的意思就是，我们要创建的 trailer 目录的直接父目录，也就是那个 video 目录还不存在 .... 
+如果你想在 video 目录下面创建这个 trailer 目录 ... 你需要先创建一个 files 目录 ... 然后再去创建 video 目录  ... 最后再去创建这个 trailer 目录 ...  
+不然的话，就会出现这里显示的这个错误信息 ...
+
+
+02-03-重命名目录 - moveTo
+
+移动或者重命名录可以使用目录对象的 moveTo() 方法。下面我们先看一下重命名目录的方法 … 
+我们先在根目录下去创建一个叫做 film 的目录   ....   找到之前创建或者获取目录用到的代码  ...   在这里输入要创建或者获取的目录 ...  输入 film ... 
+注意后面的 create 属性的值是 true ... 这样这个目录不存在的话，就会去创建一个 ...  保存 .. 回到浏览器 ... 刷新一下 ...
+应用会在文件系统的根目录下面，创建一个叫做 film 的目录 ... 
+(#script.js) 先注释掉这段代码 ...   
+想要移动或者重命名目录，我们需要先获取到这个目录  … 获取目录可以使用 getDirectory() 方法 …   在请求文件系统成功以后要执行的函数里面，我们可以先调用文件系统根目录的 getDirectory() 方法 … 
+获取的目录的路径是根目录下的 film …  选项参数可以使用一个空白的对象  …   然后是成功以后要执行的函数 …   这里我们用一个匿名函数 … 把获取到的目录对象交给这个函数 …  发生错误的时候让它去执行 onError() 。
+        /* 重命名目录 */
+        fileSystem.root.getDirectory('film', {}, function (dirEntry) {
+        }, onError); 
+在成功以后要执行的这个函数里面，我们可以调用目录的 moveTo() 方法 …  首先要指定一个重命名以后目录的父目录，这里我们把重命名以后的目录仍然放在当前目录，这里就是文件系统的根目录的下面 ..  所以，可以用一个 fileSystem.root … 
+然后是新的目录的名称 …  我们把 film 这个目录，重命名为 video …   接着是操作成功以后要执行的函数 …   这里我们把重命名以后的这个目录对象交给这个函数 …   最后是发生错误的时候要执行的函数。
+在这个成功执行的函数里，可以在控制台上输出点东西 …  
+这样重命名目录这个动作完成以后，如果重命名成功的话，就会在控制台上输出目录的新名称 … 
+        /* 重命名目录 */
+        fileSystem.root.getDirectory('film', {}, function (dirEntry) {
+            dirEntry.moveTo(fileSystem.root, 'video', function (renamedEntry) {
+                console.log('目录的新名称是：' + renamedEntry.name);
+            }, onError);
+        }, onError); 
+保存 … 回到浏览器上刷新一下 …  在控制台上会显示 目录的新名称是：video ，证明我们成功的把根目录下的 film 目录，重命名为了 video …
+
+
+02-04-移动目录 - moveTo
+
+移动目录同样可以使用目录对象的 moveTo() 方法，现在我们的应用的文件系统的根目录下面，有两个目录，一个是 files ，另一个是 video  … 下面我们试着把 video 目录移动到 files 目录里面。
+首先我们需要获取到想要移动到的那个父目录，这里就是 files 这个目录 …  接着再去获取到将要被移动的目录，再去调用它的 moveTo() 这个方法，把它移动到获取到的那个父目录的下面。
+代码
+先去获取到父目录 … 
+        /* 移动目录
+        fileSystem.root.getDirectory('files', {}, function (dirParent) {}, onError); 
+父目录的名字是 files …   一个空白的选项对象 …  然后是成功获取以后的函数 …  可以把获取到的目录对象交给这个函数 … 这里我们叫它 dirParent …  出现错误让它去执行 onError() … 
+成功以后，我们接着去获取想要移动的那个目录 …  同样用的是 getDirectory() 方法 …  要移动的目录是 video …  成功去执行一个匿名函数 …   发生错误去执行 onError() …
+        /* 移动目录 */
+        fileSystem.root.getDirectory('files', {}, function (dirParent) {
+            fileSystem.root.getDirectory('video', {}, function (dirEntry) {
+                dirEntry.moveTo(dirParent, dirEntry.name, function (movedEntry) {
+                    console.log('目录的新路径：' + movedEntry.fullPath);
+                }, onError);
+            }, onError);
+        }, onError);
+在它的里面，我们再去调用 video 这个目录的 moveTo() 方法 …   第一个参数是移动到的那个父目录对象 … 这里我们可以使用 dirParent … 因为在获取到 files 目录的时候，我们把获取到的目录对象命名成了 dirParent .. 
+然后是目录的新名称 …  这里我们不想改变目录的名字，所以可以用一个 dirEntry.name ，表示还是使用目录原来的名字 … 
+成功以后，去执行一个匿名函数 …  把返回的目录对象传递给这个函数 …   发生错误还是去执行 onError() .. 
+移动目录成功以后，我们在控制台上输出移动以后的目录的路径  …   fullPath 属性可以输出目录的路径 。
+预览
+保存，回到浏览器，刷新一下 …   在控制台上，会输出移动以后的目录的新路径 ... 是在根目录下的 files 这个目录里面。
+
+
+02-05-复制目录 - copyTo
+
+复制目录用到的方法是 copyTo， 这个方法同样有四个参数，复制到的那个父目录对象，目录复制以后的新名字，成功以后要执行的函数，还有失败的时候要执行的函数。
+先获取把目录复制到的那个父目录，然后再获取到想要复制的目录，再去调用这个目录的 copyTo 方法，把它复制到指定的父目录里面。现在我们的应用的文件系统里，在 files 目录下面，有一个 video 目录 ... 下面我们把这个 video 目录复制一份到文件系统的根目录下面。
+这里我们可以基于之前重命名目录的代码去修改一下 ...   获取到想要复制的目录 ... files 下面的 video 这个目录 ... 
+调用这个目录的 copyTo 方法 ... 把 moveTo 改成 copyTo  ... 
+复制到的父目录是文件系统的根目录，我们可以用一个 fileSystem.root ，表示这个根目录 ...   第二个参数是复制以后的新名字 ... 
+复制以后这个目录还叫 video  ， 再改一下传递给成功以后要执行的这个函数的参数的名字 ...   renamedEntry 改成 copiedEntry ..
+在控制台上输出复制以后的目录的路径 ... 
+        /* 复制目录 */
+        fileSystem.root.getDirectory('files/video', {}, function (dirEntry) {
+            dirEntry.copyTo(fileSystem.root, 'video', function (copiedEntry) {
+                console.log('目录复制以后的路径是：' + copiedEntry.fullPath);
+            }, onError);
+        }, onError); 
+预览
+保存 ...  回到浏览器...   刷新 ... 
+在控制台上会显示，已经成功的把 files 目录下的 video 这个目录，复制了一份到文件系统的根目录里面。
+
+
+02-06-删除目录 - remove
+
+目录对象的 remove 方法，可以删除掉目录，这个方法有两个参数，删除目录成功以后要执行的函数，另外还有删除目录出现错误的时候要执行的函数。
+注意这个方法不能删除目录里面包含目录或者文件的目录，也就是它只能删除掉空白的目录。另外它也不能删除掉文件系统的根目录，这些操作都会返回错误的信息。
+我们可以先获取到想要删除的目录，然后再去调用目录的 remove 方法删除掉这个目录。
+代码
+这里我们基于前面复制目录的代码来修改一下，比如我们想要删除的目录是文件系统根目录下面的 video 目录。
+先获取到根目录下的这个 video 目录 ...    调用这个目录的 remove 方法 ...   这个方法只有两个参数，成功以后执行的函数，出现错误执行的函数 .. 
+去掉函数里的这个参数 ...  再设置一下在控制台上要显示的信息　... 
+        /* 删除目录 */
+        fileSystem.root.getDirectory('video', {}, function (dirEntry) {
+            dirEntry.remove(function () {
+                console.log('删除成功！');
+            }, onError);
+        }, onError); 
+预览
+保存，回到浏览器 ... 刷新一下 ....  控制台上会显示 删除成功！ 证明我们成功的删除掉了根目录下面的 video 目录。
+下面我们再执行一下这个删除的动作 ....  刷新 ... 
+会出现错误的提示 ... A requested file or directory could not be found at the time an operation was processed.
+找不到要执行操作的文件或目录 ....  这是因为我们前面已经删除掉了这个根目录下的 video 目录，再次执行这个删除动作的时候，就找不到这个 video 目录了。
+
+
+02-07-获取到目录的父目录 - getParent
+
+getParent 这个方法可以获取到指定的目录的父目录，它有两个参数，获取成功后执行的函数，还有出现错误的时候要执行的函数。我们可以先获取到一个目录，然后调用目录的 getParent 方法来得到它的父目录。
+代码
+这里我们还是基于之前的代码来修改一下 ...   先得到一个目录 ...  比如 files 目录下面的 video 这个目录。 然后调用它的 getParent 方法 ... 
+获取成功以后，去执行一个匿名函数 ...  把得到的父目录作为函数的参数传递进去 ...   再去设置一下显示在控制台上的信息。
+先用一个 dirEntry.name 来输出目录的名称 ....   中间再加点连接的文字 ... 然后使用 parent.name ... 输出父目录对象的名字 .... 
+如果获取父目录的时候出现错误，会去执行 onError 这个函数。
+        /* 获取目录的父目录 */
+        fileSystem.root.getDirectory('files/video', {}, function (dirEntry) {
+            dirEntry.getParent(function (parent) {
+                console.log(dirEntry.name + ' 目录的父目录是 ' + parent.name);
+            }, onError);
+        }, onError); 
+预览
+保存一下。回到浏览器 .... 刷新 .... 
+在控制台上，会显示 video 这个目录的父目录是 files 这个目录。
+
+
+02-08-创建或获取到目录里的文件 - getFile
+
+想要在目录里获取或者创建文件可以使用目录的 getFile 方法。这个方法的用法跟获取或者创建目录用的 getDirectory  方法差不多。它一共有四个参数，第一个参数是文件的路径 ...   然后是相关的选项 ... 在相关选项里，你可以指定如果文件不存在的话是否去创建它，还有文件是否必须是唯一的 ... 
+第三个参数是获取或者创建成功以后要做的事情，最后一个参数是出现错误的时候要执行的动作。
+代码
+下面我们在根目录下的 files 目录下面的 video 这个目录里面，去创建一个叫 gravity.mp4 的文件 ...   在这个请求文件系统成功以后要执行的函数里面，先用一个 fileSystem.root ，表示文件系统的根目录，然后调用它的 getFile 方法 ... 
+文件的地址应该是在 files 目录下面的 video 目录里 ...  名字是 gravity.mp4  ... 
+再指定一个相关的选项，这个选项是一个对象，我们需要把它放在一组花括号里面。 然后设置一下选项对象的 create 属性，还有 exclusive 属性的值。
+create 设置成 true ，表示如果文件不存在的话，就去创建一个 ...  exclusive 属性设置成 false ... 
+        /* 获取或创建文件 */
+        fileSystem.root.getFile('files/video/gravity.mp4',
+            {create: true, exclusive: false},
+            function (fileEntry) {
+                console.log(fileEntry);
+            }, onError); 
+接着再设置一下成功以后要执行的函数，可以用一个匿名函数 ...  然后把成功以后返回的文件对象传递给这个函数去处理...  在文件系统里，文件用 fileEntry 这个名字表示 ... 
+然后在控制台上输出这个文件对象 ... 
+最后再设置一下失败以后要执行的函数 ... 让它去执行 onError ...
+预览
+保存一下 ... 回到浏览器 ... 刷新 ...
+在控制台上会输出刚刚创建的这个文件对象 ....   （#打开）... 
+fullPath 属性是这个文件的地址 ...   isDirectory 的值是 false ，表示这不是一个目录  ...  isFile 的值是 true ... 说明它是一个文件 ....  name 是这个文件的名称 ...
+这里我们使用 getFile 方法去创建了一个空白的文件...   使用这个 getFile 方法，我们也可以去获取到指定路径的文件...  然后对文件进行一些操作，比如可以移动，复制，删除，这些方法跟操作目录的方法差不多 ... 另外，我们也可以读取文件里的内容，或者写入内容到文件里面。
+在后面的视频里我们再去详细的介绍这些关于文件的操作 ...
+
+
+02-09-读取目录 - createReader
+
+调用目录的 createReader 方法，它会返回一个 DirectoryReader 对象，然后调用这个 DirectoryReader 对象的 readEntries 方法，可以得到目录所包含的项目，使用一个循环语句，可以输出所有的项目。下面我们试试列出文件系统根目录下的所有的文件和目录。
+先定义一个变量 ... 叫做 directoryReader ... 它的值是使用 createReader 方法返回的对象  ...  我们可以调用文件系统的根目录的 createReader 方法 ...
+        /* 读取目录 */
+        var directoryReader = fileSystem.root.createReader();
+        directoryReader.readEntries(function (entries) {
+            var i;
+            for (i = 0; i < entries.length; i += 1) {
+                console.log(entries[i]);
+            }
+        }, onError); 
+然后去调用这个 directoryReader 对象的 readEntires 方法 ...  使用这个方法可以读取项目...  这个方法有两个参数 ....  读取成功以后执行的函数 ... 
+这里我们用一个匿名函数 ... 这里可以把 readEntries 返回的对象交给这个函数 ...   在这个函数里面，用一个 for 循环去处理这个对象里的东西，也就是根目录包含的目录和文件 ...  这里我们只是简单的把每个项目都输出到控制台上 ...   
+最后一个参数是读取的发生错误的时候要执行的函数 ...    
+下面我们去预览一下 ... 保存 ... 回到浏览器 ...   我事先在根目录的下面，使用之前的视频里介绍的方法，创建了几个文件，还有几个目录  ...  
+所以在控制台上，你会看到所有的在根目录下面的这些文件和目录。
+
+
+02-10-递归删除目录 - removeRecursively
+
+如果你想删除目录，还有目录里面包含的其它目录和文件，我们可以使用递归删除，用到的就是目录对象的 removeRecursively 这个方法。先用 getDirecotry 获取到想要删除的目录，然后再去调用这个目录的 removeRecursively 方法。
+代码：
+下面我们去删除掉根目录下的 files 这个目录 ... 还有这个目录里面包含的文件还有其它的目录 ...   先获取到这个 files 目录 ... 
+获取成功以后，去调用这个目录对象的 removeRecursively 这个方法...    删除成功以后，在控制台上显示一个 删除成功 的信息 .. 
+        /* 递归删除 */
+        fileSystem.root.getDirectory('files', {}, function (dirEntry) {
+            dirEntry.removeRecursively(function () {
+                console.log('删除成功！');
+            }, onError);
+        }, onError); 
+预览
+保存 ... 回到浏览器 ... 刷新 ...  在控制台上会显示 删除成功 这个信息  ...  说明已经删除掉了 files 目录，还有它里面的所有的东西。
+
+
+03-01-文件 - 创建与重命名
+
+文件的基本操作跟目录的操作操作是差不多的， 而且很多方法的名称和用法都是一样的。接下来的视频里，我们可以来快速的演示一下创建，重命名，移动，复制，还有删除文件  ..
+先用前面视频里介绍的方法去创建一个文件 ... 可以使用目录的 getFile 方法 ...  它的第一个参数就是想要创建或者获取的文件的名称 ... 选项参数里，create 属性的值是 true ，所以，如果文件不存在的话，就会去创建一个 ...
+我们在根目录下，创建一个叫 log.txt 的文件 ...  然后把它输出到控制台上 ... 
+        /* 获取或创建文件 */
+        fileSystem.root.getFile('log.txt',
+            {create: true, exclusive: false},
+            function (fileEntry) {
+                console.log(fileEntry);
+            }, onError); 
+保存，回到浏览器 ... 刷新 ... 在控制台上，会显示刚刚创建的这个 log.txt 文件 ...  下面去改一下它的名字 ...  用的是 File Entry 的 moveTo 方法 ..
+（#script.js）先获取到想要修改名字的文件 ...  也就是这个 log.txt 方法 ...   这里我们把 create 属性的值改成 false ...  这样不会去创建这个文件 ...
+在成功以后执行的函数里，调用获取到的文件的 moveTo 方法 ...  指定一下重命名以后文件所在的父目录，这里我们不想改变文件的位置，所以可以用一个 fileSystem.root ，表示文件的根目录 ... 
+然后是文件重命名以后的名字 ...   把 log.txt ，改成 data.txt  ...  成功以后去执行一下匿名函数 ... 失败的时候，去执行 onError ...
+把重命名返回的文件传递给这个成功以后执行的函数里 ...  在控制台上输出这个文件  ... 
+        /* 文件的重命名 */
+        fileSystem.root.getFile('log.txt',
+            {create: false, exclusive: false},
+            function (fileEntry) {
+                fileEntry.moveTo(fileSystem.root, 'data.txt', function (renamedFile) {
+                    console.log(renamedFile);
+                }, onError);
+            }, onError); 
+保存，再到浏览器上看一下 ...  你会发现在控制台上输出的文件的名字是  data.txt ...
+
+
+03-02-移动文件 - moveTo
+
+下面我们使用文件对象的 moveTo 方法来移动文件。我们先在文件系统的根目录下去创建一个新的目录 ，然后把上一个视频里创建的 data.txt 这个文件移动到这个新的目录里面 ... 
+创建或者获取目录，可以使用 getDirectory ... 输入目录的路径 ...  在根目录下创建一个叫 files 的目录  ...  
+        /* 创建一个叫 files 的目录*/
+        fileSystem.root.getDirectory('files', {create: true, exclusive: false}, function (dirEntry) {
+            console.log('成功获取或创建了目录：' + dirEntry.name);
+            console.log(dirEntry);
+        }, onError); 
+保存，回到浏览器，刷新一下 ...  成功以后再回到脚本文件 ... 
+移动文件，先要获取到想要移动到的那个父目录，这里我们使用同样的 getDirectory 方法，可以得到 files 目录 ...  在获取成功以后要做的事情里面，再去获取到想要移动的那个文件 ... 
+复制之前重命名文件的代码 ... 粘贴到这里 ... 然后修改一下  ... 想要得到的文件是 data.txt ...  成功以后调用文件的 moveTo 方法 ...
+要移动到的那个父目录，是刚刚获取到的 files 这个目录  ...    这个目录我们用 dirEntry 来表示 ...  移动以后文件的名字保持不变 ...  这里可以用一个 fileEntry.name 来输出这个文件的名字 ...
+再改一下传递的参数的名称  ...  renamedFile 改成 movedFile ..    在控制台上再输出这个文件  ... 
+        /* 把 data.txt 放到 files 目录里面 */
+        fileSystem.root.getDirectory('files', {create: true, exclusive: false}, function (dirEntry) {
+            fileSystem.root.getFile('data.txt',
+                {create: false, exclusive: false},
+                function (fileEntry) {
+                    fileEntry.moveTo(dirEntry, fileEntry.name, function (movedFile) {
+                        console.log(movedFile);
+                    }, onError);
+                }, onError);
+        }, onError); 
+保存  ... 回到浏览器上 ...  刷新  ... 
+你会看到，输出的这个文件的 fullPath  ...  是在根目录下的 files 这个目录里面。 说明我们已经成功的把在根目录下的 data.txt 移动到了根目录下的 files 这个目录里面。
+
+
+03-03-复制文件 - copyTo
+
+复制文件用的是文件对象的 copyTo 方法。先获得想要把文件复制到的那个目录，然后再得到想要复制的文件，再调用文件的 copyTo 方法复制到开始获取到的那个目录里面。
+在根目录下面的 files 目录里，有一个 data.txt 文件，下面我们去复制一份 data.txt 文件到文件系统的根目录下 ...  
+因为文件系统的根目录可以用 filesSystem.root 来表示，所以我们不需要特意去使用 getDirectory 方法获取到目录了。
+代码
+直接使用 getFile 去获取想要复制的文件。可以复制一段之前用来移动文件的代码 .. 
+        /* 复制 /files/data.txt 到根目录下 */
+        fileSystem.root.getFile('files/data.txt',
+            {create: false, exclusive: false},
+            function (fileEntry) {
+                fileEntry.copyTo(fileSystem.root, fileEntry.name, function (copiedFile) {
+                    console.log(copiedFile);
+                }, onError);
+            }, onError); 
+想要复制的文件在 files 目录下面的 data.txt ...   获取文件成功以后，调用文件的 copyTo 方法 ... 复制到的目录是文件系统的根目录 ...  复制的这个文件的名字还是使用之前的名字.. 也就是 data.txt ... 
+再修改一下传递的参数的名字 ... 让它更有意义一些 ..   同样在控制台上输出这个复制的文件  ... 
+预览
+保存 ....  回到浏览器 ... 刷新一下 ... 
+在控制台上，会显示在根目录下的 data.txt 文件，这个文件就是刚才我们使用代码，从 files 目录里面复制的那个文件。
+
+
+03-04-删除文件 - remove
+
+删除文件用的是文件对象的 remove 方法。先获取到想要删除的文件，然后再调用这个文件对象的 remove 方法，可以删除掉这个文件。
+代码
+这里我们可以基于之前用来复制文件的代码去修改一下 ...  想要删除的文件是根目录下面 files 目录里的 data.txt 这个文件 ... 获取成功以后，把文件对象传递给这个函数 ... 
+在这个函数里面 .. 可以调用这个文件对象的 remove 方法 ... 
+这个方法只有两个参数，删除成功要执行的函数，还要出现错误的时候要执行的函数 ...  成功以后去执行一个匿名函数 ... 出现错误去执行 onError ..
+成功的时候，可以在控制台上输出一条信息 ... 
+        /* 删除 /files/data.txt 文件
+        fileSystem.root.getFile('files/data.txt',
+            {create: false, exclusive: false},
+            function (fileEntry) {
+                fileEntry.remove(function () {
+                    console.log('文件删除成功！');
+                }, onError);
+            }, onError);*/ 
+预览
+保存一下，回到浏览器 ... 刷新一下页面 ...   在控制台上会显示 文件删除成功 ！说明我们已经删除掉了 files 目录里面的这个 data.txt 文件。
+
+
+04-01-写入内容到文件里面 - FileWriter
+
+调用文件对象的 createWriter 方法，成功以后会返回一个 FileWriter 对象。使用这个对象，我们可以往文件里面写入内容。
+代码
+先获取到想要写入内容的文件 ...  比如我们想往根目录下面的 data.txt 这个空白的文件里添加点东西 ...   获取文件用的是目录对象的 getFile 方法 ...  
+成功以后，再去调用获取到的这个文件对象的 createWriter 方法 ...   调用成功，让它去执行一个匿名函数 ...  出现错误去执行 onError  ... 
+创建文件写入器成功的话会返回一个 文件写入器 的对象 ... 我们把这个对象交给这个成功以后要执行的函数，作为它的一个参数 ... 这样在这个函数里面，我们可以使用这个文件写入器对象的方法往文件里写入内容。
+      /* 写入内容到 data.txt */
+        fileSystem.root.getFile('data.txt',
+            {create: false, exclusive: false},
+            function (fileEntry) {
+                fileEntry.createWriter(function (fileWriter) {
+                    var blob = new Blob(['地心引力'], {type: 'text/plain'});
+                    fileWriter.write(blob);
+                    console.log('写入内容成功！');
+                }, onError);
+            }, onError); 
+先创建一个新的 blob ，要写入文件的内容是 地心引力 这几个字 ...  blob 的类型是纯文本 ...    接着再去调用文件写入器的 write 这个方法来写入刚才创建的这个 blob 内容 ... 
+在控制台上再输出一个成功的提示  ... 
+预览
+保存，回以浏览器 ... 刷新一下 ...  在控制台上你会看到 写入内容成功 ...  证明我们已经把设置的内容写入到了 data.txt 这个文件里面了 ... 
+在下面的视频里我们再去看一下怎么样读取到这个文件里的内容。
+
+
+04-02-读取文件里的内容
+
+往文件里面写内容的时候，会触发一些事件，使用这些事件的对应的处理器，我们可以去做一些事情 ...  开始写的时候，会执行  onwritestart，写入成功以后，会执行  onwrite ...  写入结束以后不管成功还是失败，都会去执行 onwriteend ... 
+下面在成功写入内容到文件以后，去做点事情，可以去读取写入内容以后的文件里面的内容 ... 
+在文件系统里，代表文件的东西叫做 FileEntry ...  调用它的 file 方法，可以返回一个表示当前状态的文件对象 ...  然后我们去新建一个文件的阅读器，读取这个文件对象里的内容。
+关于读取文件的方法，可以参数宁皓网的 文件 API 这个课程 ... 
+代码
+我们先去设置一下 文件写入器的 onwrite 处理器 ...    在写入内容完成以后，调用 FileEntry 的 file 方法 ...  这个方法有两个参数，成功要执行的函数，还有失败要执行的函数 ... 
+成功的话，会返回一个 file 文件对象 ...  把它传递给这个函数  ..   在这个函数里，我们先去新建一个文件阅读器 ...  给它一个名字 ...  叫作 reader  ...
+再去调用阅读文件的方法，这里我们用 readAsText ... 用文本的形式读取文件  ... 
+再设置一下读取文件成功以后的处理器 ...   在成功以后返回一个对象 ...  我们叫它 event ... 再把它传递给这个函数 ... 
+这个对象的 target .... result 属性里面，会包含文件里的内容  .... 
+我们可以把它输出到浏览器的控制台上 ... 
+        /* 写入内容到 data.txt */
+        fileSystem.root.getFile('data.txt',
+            {create: false, exclusive: false},
+            function (fileEntry) {
+                fileEntry.createWriter(function (fileWriter) {
+                    var blob = new Blob(['地心引力'], {type: 'text/plain'});
+                    fileWriter.write(blob);
+                    console.log('写入内容成功！');
+                    /* 写入完成以后读取文件里的内容 */
+                    fileWriter.onwrite = function (event) {
+                        fileEntry.file(function (file) {
+                            var reader = new FileReader();
+                            reader.readAsText(file);
+                            reader.onload = function (event) {
+                                console.log(event.target.result);
+                            };
+                        }, onError);
+                    };
+                }, onError);
+            }, onError); 
+预览 
+保存一下文件 ... 回到浏览器 ... 刷新 .. 
+在控制台上会输出 data.txt 这个文件里面的内容  ....
+
+
+04-03-复制用户选择的文件到文件系统里面
+
+通过文件选择表单，或者拖放的方式，可以把用户选择的文件复制到应用的文件系统里面。先得到选择的文件，用文件的名称去创建一个空白的文件，再调用文件的写入器，把用户选择的文件的内容再写入到在文件里。
+代码
+在应用的 index.html 这个文件里面，新建一个文件选择表单 ....  上面的 ID 是 select-file ... 
+回到 script.js ...  先得到选择文件表单元素 ....   再设置 onchange 事件处理 ..  也就是表单元素发生变化的时候要执行的动作 ... 
+在事件返回的对象里面，target 里面的 files 这个属性里，会包含用户选择的文件对象 ..  这部分内容我们在 文件 API 课程里做过详细的介绍，有兴趣可以去看一下 ... 
+这里我们命名一下选择的这个文件 ... 叫它 file ... 
+再用 getFile 在应用的文件系统上去创建这个文件 ... 
+成功以后，把文件的内容写入到这个创建的文件里面 ...  调用 fileEntry 的 createWriter 方法 ... 
+创建写入器成功以后，调用写入器的 write 方法 ...  要写入到文件的内容，就是用户所选择的这个文件 ... 
+写入成功以后，在控制台上，我们可以再输出点内容 ... 
+index.html
+<input type="file" name="select-file" id="select-file">
+script.js
+        /* 复制用户选择的文件到文件系统里面 */
+        var selectFile = document.getElementById('select-file');
+        selectFile.onchange = function (event) {
+            var file = event.target.files[0];
+            fileSystem.root.getFile(file.name,
+                {create: true, exclusive: false},
+                function (fileEntry) {
+                    fileEntry.createWriter(function (fileWriter) {
+                        fileWriter.write(file);
+                        fileWriter.onwrite = function () { console.log('成功复制了选择的文件！'); };
+                    }, onError);
+                }, onError);
+        }; 
+预览
+保存文件  ... 回到浏览器  ...   点击 选择文件  ... 选择在电脑上的一张图片文件  ... 
+这样会触发执行这个选择表单元素的 onchange 处理器 ... 也就会把所选的这张图片复制到应用的文件系统里面 ...  位置应该是在文件系统的根目录下 .... 
+在控制台，会显示 成功复制了选择的文件！
+
+
+04-04-获取文件的 URL
+
+使用文件的 toURL 这个方法可以获取到文件的地址，比如你想把文件系统里的一张图片显示到页面上，你可以调用这个图片文件的 toURL 方法，获取到一个 filesystem 形式的 URL 地址。
+代码
+下面我们就去这个方法获取到之前视频里复制到文件系统里的那张图片的地址 ... 
+先获取到这个文件 ...    然后调用这个文件的 toURL() 方法 ...  它返回的就是这个文件的地址 ...   我们可以命名一下这个地址 ... 
+再把它输出到控制台上 ..
+        /* 获取到文件的 URL */
+        fileSystem.root.getFile('3013.jpg', {}, function (fileEntry) {
+            var URL = fileEntry.toURL();
+            console.log(URL);
+        }, onError); 
+预览
+保存文件 ... 回到浏览器 ... 刷新  ... 
+在控制台上，你会看到一个 filesystem 形式的地址 ...    复制一下这个地址 ... 
+新建一个浏览器标签  ..  粘贴过来 ...  然后回车 ...  
+你会看到，可以直接在浏览器上打开在本地文件系统里面的这个图片文件 ...
+
+

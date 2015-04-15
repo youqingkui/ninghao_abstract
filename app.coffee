@@ -163,14 +163,14 @@ class DownCourse
 
 
 
-down = new DownCourse('http://ninghao.net/course/2000')
-async.series [
-  (cb) ->
-    down.getCourseList(cb)
-
-  (cb) ->
-    down.getAbstract(cb)
-  ]
+#down = new DownCourse('http://ninghao.net/course/2000')
+#async.series [
+#  (cb) ->
+#    down.getCourseList(cb)
+#
+#  (cb) ->
+#    down.getAbstract(cb)
+#  ]
 
 
 
@@ -192,9 +192,21 @@ class GetCourse
   tryDown: (courseArr, cb) ->
     async.eachSeries courseArr, (item, callback) ->
       $ = cheerio.load(item)
-      url = $("a").href
+      url = 'http://ninghao.net' + item.attribs.href
       console.log "tryDown url =>", url
-      down = new ninghao(url)
+      down = new DownCourse(url)
+
+      down.getCourseList (err) ->
+        return callback(err) if err
+        down.getAbstract (err2) ->
+          return callback(err2) if err2
+
+          callback()
+
+    ,(eachErr) ->
+      return cb(eachErr) if eachErr
+
+      console.log "### all page do ###"
 
 
 
@@ -204,7 +216,13 @@ class GetCourse
 
 
 
+down = new GetCourse()
+down.getCourseUrl (err, courseArr) ->
+  return console.log err if err
 
+  down.tryDown courseArr, (err2) ->
+    if err2
+      return console.log err2
 
 
 

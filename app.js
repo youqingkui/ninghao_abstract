@@ -100,16 +100,6 @@
 
   })();
 
-  down = new DownCourse('http://ninghao.net/course/2000');
-
-  async.series([
-    function(cb) {
-      return down.getCourseList(cb);
-    }, function(cb) {
-      return down.getAbstract(cb);
-    }
-  ]);
-
   GetCourse = (function() {
     function GetCourse(starUrl) {
       this.starUrl = starUrl != null ? starUrl : 'http://ninghao.net/course';
@@ -132,17 +122,46 @@
 
     GetCourse.prototype.tryDown = function(courseArr, cb) {
       return async.eachSeries(courseArr, function(item, callback) {
-        var $, url;
+        var $, down, url;
         $ = cheerio.load(item);
-        url = $("a").href;
+        url = 'http://ninghao.net' + item.attribs.href;
         console.log("tryDown url =>", url);
-        return down = new ninghao(url);
+        down = new DownCourse(url);
+        return down.getCourseList(function(err) {
+          if (err) {
+            return callback(err);
+          }
+          return down.getAbstract(function(err2) {
+            if (err2) {
+              return callback(err2);
+            }
+            return callback();
+          });
+        });
+      }, function(eachErr) {
+        if (eachErr) {
+          return cb(eachErr);
+        }
+        return console.log("### all page do ###");
       });
     };
 
     return GetCourse;
 
   })();
+
+  down = new GetCourse();
+
+  down.getCourseUrl(function(err, courseArr) {
+    if (err) {
+      return console.log(err);
+    }
+    return down.tryDown(courseArr, function(err2) {
+      if (err2) {
+        return console.log(err2);
+      }
+    });
+  });
 
 }).call(this);
 

@@ -1,0 +1,559 @@
+01-创建 Class
+
+在 PHP 里面创建一个 Class ，可以使用 class 这个关键词，后面加上 class 的名称，这个名称可以使用下划线或者字母开头，一般来说，类的名称每个词的首字母都是大写的。接着是一组花括号，在花括号里，我们可以去定义 class 的属性，还有方法。
+比如我们想要创建一个音乐相关的应用程序，下面，我们先去创建一个叫 Track 的类，表示音乐的曲目 ... 
+新建一个 php 文件 ... 命令名 Track.php ...   这个文件里面都是 php 代码，所以只需要使用一个 php 开始的标记，可以忽略掉 php 的结束标记。然后去定义 class，输入 class Track ... 一组花括号.. 你可以让左右两边的花括号各占一行 ...   也可以把左边的花括号留在 class 名称的右边 ... 
+<?php
+class Track
+{
+}
+这样我们就创建了一个 class，下面再去新建一个 php 文件 ... 命名为 index.php ...   先输入一点基本的 HTML 页面的代码  ...  然后在文件的顶部，输入一组 php 标记 ... 
+先去一个 require ，把 Track.php 这个文件包含进来 .. 
+require 'Track.php';
+这样在这个 index.php 文件里，我们就可以使用在 Track.php 里面定义的 Track 这个 class 了。
+实例化类
+根据这个类，可以去创建对象，这个动作叫做，实例化一个类，英文是 instantiation，一个对象也可以叫做是类的一个 instance ，也就是类的一个实例。
+实例化一个类，可以使用 new 这个关键词 ... 后面加上类的名称，在实例化类的时候，可以传递参数，这个参数可以放在一组括号里。这里我们也可以直接加上这组括号。再给这个对象起个名字 ... 
+$magic = new Track();
+调试
+下面，我们可以去给这个对象输出到屏幕上看一下 ... 可以使用 PHP 的 print_r() 函数 ... 
+print_r($magic);
+现在，magic 里面的东西就是使用 Track 这个类创建的一个对象，不过因为 Track 是个空白类，所以，magic 里面，也没有什么东西。在下面的视频里，我们看一下给类添加一些属性。
+
+
+02-添加属性-properties
+
+变量在类里面，就叫做这个类的属性，英文是 properties。下面，我们给 Track 这个类里面，去添加两个属性。可以使用访问修饰符，加上属性的名称去给类添加属性。访问修饰符可以控制属性的访问权限，在后面的视频里我们会详细是去介绍它。
+这里我们先使用 public 这个修饰符，表示公有的属性 ...  然后是属性的名称 ... 添加一个曲目名称的属性，叫它 $track_name ... 再给它一个值  ..  Magic 
+public $track_name = 'Magic';
+再添加一个曲目艺术家的属性，叫做 $track_artist;   ... 也可以给它一个值，叫做 Coldplay ... 
+public $track_artist = 'Coldplay';
+这样，Track 这个类就拥有了两个属性，track_name 还有 track_artist ...   在去预览一下 index.php  ...  在前面的视频里，我们已经实例化了一个 Track 类，就是这个 magic ... 
+在浏览器里打开 index.php ... 
+你会看到 magic 这个对象里面有了两个属性，track_name 还有 track_artist ... 
+访问属性 ->
+访问这个对象的属性，用的是对象操作符，就是一个箭头符号。回到 index.php ，比如我们输出 magic 这个对象里的属性的值  ...  echo $magic ，一个箭头符号 ... 然后是属性的名称 ...  注意这里属性名称的前面不用再加上 $ 符号了。后面再加上一个换行符 ... 
+echo $magic->track_name . '<br>';
+接着，再把 track_artist 这个属性的值也输出出来，
+echo $magic->track_artist . '<br>';
+注释掉 print_r($magic); 这行代码 ... 再去浏览器里预览一下 ...   在屏幕上会显示出 magic 这个对象里的 track_name 还有 track_artist 属性的值  .. 
+目前这两个属性的值，我们是直接定义在了 Track 这个类里面。如果用这个类再去创建一个对象，默认这两个属性的值仍然是 Magic ，还有 Coldplay ... 
+设置属性值
+下面我们再看一下设置属性的值，回到 Track.php  ... 去掉这两个属性的值 ...  再回到 index.php ...  
+在实例化了 Track 类以后，可以再去设置一下类里的属性的值。设置属性的值同样要用到对象操作符，也就是箭头符号 ...  先设置一下 magic 这个对象的 track_name 属性的值 ...  让它等于 Magic 这个字符串 ... 
+$magic->track_name = 'Magic';
+再设置一下它的 track_artist 属性的值  ...  magic 这首歌属于 coldplay 这个乐队 ... 
+$magic->track_artist = 'Coldplay';
+下面，我们可以再去根据 Track 这个类去创建一个对象。叫它 amani ... 
+$amani = new Track();
+同样再设置一下 amani 这个对象的属性 ...   名称是 Amani ...  这个歌属于 Beyond 这个乐队 ... 
+$amani->track_name = 'Amani';
+$amani->track_artist = 'Beyond';
+再在屏幕上输出 amani 这个对象的属性的值 ..  复制这两行代码 ... 再去修改一下 ...   
+回到浏览器 ... 
+你会看到 magic 还有 amani 这两个对象里面的属性的值。
+
+
+03-添加方法-methods
+
+在类里面定义的函数，就是这个类里面的方法，也就是这个类的行为，或者叫它能做的事情。下面，我们再去给 Track 这个类添加一个方法。方法名称的前面同样需要一个访问修饰符，表示这个方法的权限。
+这里我们还是用一个 public ... 表示这是一个公开的方法 ...   后面是方法的名称 ...   注意方法就是一个在类里定义的函数，所以，这里，还是需要加上 function 这个关键词 ...  接着是方法的名称 ...  叫它 track_playing ... 
+public function track_playing() {};
+这个方法能做的事很简单，就是返回一个 正在播放 ... 后面加上曲目的名称 ... return '正在播放 '，得到曲目的名称，可以使用 $this 这个变量，这的作用就是引用实例化以后的那个对象。比如用这个类创建了一个叫 magic 这个对象，那么这个 this 就代表 magic 这个对象。
+得到对象的属性，用的是对象操作符，箭头符号 ....  后面，再加上属性的名称 ...  
+return '正在播放 ' . $this->track_name;
+调用方法
+再回到 index.php ，调用对象的方法跟访问对象的属性是差不多的，同样是使用箭头符号 ...  下面去调用 magic 这个对象的 track_play 这个方法 ...  $magic->track_play();  ...   因为这个方法只是简单的返回一个字符串，在它前面可以加上一个 echo ，把这个字符串输出到屏幕上。
+保存，回到浏览器 ...  在屏幕上会显示，正在播放 Magic ...   回到 index.php ...  再试试调用 amani 这个对象的 track_play 方法。
+回到浏览器  ... 会显示正在播放 Amani ..   因为 $this 这个变量指向的就是当前的对象。所以调用 amani 这个对象的 track_play 的时候，会显示正在播放，然后是 amani 这个对象的 track_name 这个属性的值。
+
+
+04-继承-inheritance
+
+创建类的时候，我们可以使用继承，让一个类从另一个类那里继承点东西，也就是去继承类的属性还有方法。比如我们有两个类，用户，还有管理员，我们可以让管理员这个类去继承用户这个类，这样管理员这个类会自动拥有在用户这个类上定义的属性，还有方法。
+这里，用户这个类可以叫做超级类（Super Class），或者叫父类（Parent Class），继承它的管理员这个类叫做（Sub Class），或者 Child Class ，也就是子类。
+下面，我们创建一个新的 php 文件，叫做 Player.php ... 在这里去定义一个叫 Player 的类 ...  让这个类去继承之前我们定义的 Track 这个类。
+输入 class ，然后是类的名称，Player ...  因为我们要让它去继承 Track 类，这里需要用一个 extends  ...  接着是要继承的类的名称 ... 
+class Player extends Track
+{
+}
+下面我们再去确认一下它能从 Track 这个类里继承属性还有方法 ...  回到 index.php .. 先包含一下 Player.php 这个文件 ... 
+然后，我们可以实例化一下 Player 这个类 ...  叫它 my_player  ... 
+再用 var_dump 去查看一下 ... 
+var_dump($my_player)
+回到浏览器 .. 这里会显示出 player 对象里面的两个属性 ...  track_name 还有 track_artist ...   my_player 这个对象是 Player 这个类的一个实例 ...  虽然我们并没有在 Player 这个类里定义这两个属性 ...  但是让它去继承了 Track 这个类，所以 Player 就会包含这个类里面的属性还有方法 ... 
+这里虽然没有显示出 Track 类里的 track_playing 这个方法 ... 不过它也会被 Player 继承过来 ...
+
+
+05-访问控制-private
+
+使用访问控制修饰符，我们可以控制访问类里面的属性还有方法的权限。一共有三个修饰符，public ，private，还有 protected 。之前我们已经使用了 public 这个修饰符。它可以让属性是公开的，这样在类的外部，可以直接设置和访问属性的值。
+如果在定义属性或方法的时候，使用了 private，那么这个属性只能在这个类的内部使用。即使在继承它的子类里面，也不能访问。
+要是只想在这个类里或者继承它的类里面访问属性还有方法，可以使用 protected 这个修饰符。
+在前面我们已经试过 public 了，下面，我们再去试一下 private 还有 protected 　... 
+打开 Track.php ，把 track_name 前面的 public 换成 private ，让它变成一个私有的属性，也就是只能在这个类的内部使用的属性。
+回到 index.php ..  实例化一下 Track 类 ... 
+再试着去访问这个对象的 track_name 属性 ...   
+$magic = new Track();
+echo $magic->track_name;
+回到浏览器上看一下  ....  这里提示说  Fatal error: Cannot access private property，不能访问私有的属性 ...   因为在定义 track_name 的时候，使用了 private ，把它标记成了一个私有的属性。这个属性只能在类的内部使用。
+再回到 Track.php ...  先给 track_name 手工指定一个值  ...   然后我们再试着去访问 track_playing 这个方法 ... 在这个方法里，用到了 track_name 这个属性 ...  
+再打开 index.php ... 去执行一下 magic 这个对象的 track_playing 这个方法 ...  
+echo $magic->track_playing();
+回到浏览器 ... 因为这个方法是一个公开的方法，所以在类的外部是可以访问的 ...  在屏幕上会显示 正在播放 ... 然后是 track_name 里面的值  ... 说明，track_name 这个属性在这个类的内部是可以访问的。
+
+
+06-访问控制-protected
+
+下面再来看一下 protected 这个修饰符，如果想让属性还有方法只用在类的本身还有继承它的类里面，可以它。
+打开 Track.php ... 把 track_name 这个属性前面的 private 换成 protected ...   这样它就变成了一个受保护的属性 ...  在类的外部是不能访问到它的。
+回到 index.php ...  试一下去输出 track_name 这个属性的值 ...  
+回到浏览器 ...  提示 Fatal error: Cannot access protected property ... 不能访问受保护的属性 ..  说明在外部不能直接访问使用 protected 标记的属性 ...  不过这个属性在子类里面是可以访问的。
+打开 Player.php ... 这里的 Player 这个类继承了 Track 类 ...  在这个类里，我们再去定义一个公开的方法 ... 叫做 the_track_name ... 
+在这个方法里，可以简单的去把继承过来的 track_name 这个属性的值输出到屏幕上 ... 
+<?php
+class Player extends Track
+{
+    public function the_track_name() {
+        echo $this->track_name;
+    }
+}
+再打开 index.php ....  用 Player 这个类去创建一个对象  ...  可以叫它 my_player ...   再去调用这个对象的 the_track_name 这个方法 ... 
+$my_player = new Player();
+$my_player->the_track_name();
+回到浏览器  ... 会显示 Magic 这个字符串 ...  这是在 Player 这个类里去访问继承过来的，用 protected 标记的 track_name 这个属性的值  ....  
+说明在子类里，可以访问到使用 protected 标记的属性 ... 
+再打开 Track.php ... 把这个 protected 换成 private ... 
+回到浏览器  ... 提示 Undefined property  ...   未定义的属性。因为现在 track_name 这个属性是用 private 标记的，所以这个属性不会被继承。
+
+
+07-静态属性与方法-static,self
+
+在类里面，我们可以定义一些静态的属性还有方法，这些静态的属性和方法不需要实例化类就可以使用，就是说，你可以使用类的名称加上静态属性还有方法的名称直接使用它们，不需要像前面介绍的那样，先用 new 操作符去创建一个类的实例，然后再去调用这个实例的属性和方法。
+先打开 Track.php ，我们可以把这个 track_name 属性变成一个静态的属性，首先需要把访问控制符换成 public ...  然后在它的后面加上一个 static 这个关键词，它的中文意思就是静态的。
+这样就可以把 track_name 这个属性，变成一个公开的静态的属性 ...   
+打开 index.php ...  这里，我们可以直接使用类名，后面加上两个冒号 ... 这个符号叫做范围解析操作符 ...  然后是静态的属性或者方法的名称 ..  注意这个属性名称的前面要加上 $ 符号 ...  最前面再用一个 echo  ... 直接输出这个属性的值  ... 
+echo Track::$track_name
+回到浏览器 ...  这里直接会显示 track_name 这个属性的值  ... 不需要去基于 Track 这个类去创建一个对象，然后再去访问这个对象的 track_name 属性 ... 直接使用类名，加上两个冒号，跟着属性的名称就可以直接访问到这些静态的属性了。
+静态的方法
+除了可以定义静态的属性，类里面的方法也可以是静态的 .. .再打开 Track.php ... 我们把这个 track_playing 改成一个静态的方法 ...  这里只需要在 public 的后面加上一个 static 关键词 ...  保存 ... 
+回到 index.php ... 再去调用这个类的静态方法 ...  先是类的名称 ... 加上范围解析操作符 ... 也就是两个冒号 ... 然后是静态的方法的名称  ...  track_playing() ... 这个方法会返回一个字符串 ...  在前面加上一个 echo ... 直接输出这个字符串 ... 
+echo Track::track_playing();
+保存 .. 回到浏览器 ...  这里会显示一个错误  ...Fatal error: Using $this when not in object context ...   意思就是，我们错误的使用了 $this  这个变量 ... 
+回到 Track.php ...  在 track_playing 这个方法里，用了一个 $this ，用它来代表实例化以后的那个对象...   因为这是一个静态的方法 ... 所以没有实例化的对象 ... 
+在这里，我们可以用一个 self 关键词 ...  用它来表示这个类本身 ...  $this 表示对象 ...  self 就表示类本身 ...  self ，后面使用一个范围解析操作符 ... 两个冒号 ...  接着是要使用的这个静态的属性的名称  ... 这里需要加上一个 $ 符号 ...   这行代码的意思就是，返回，正在播放，再加上这个类里面的 track_name 这个静态属性的值 ...
+    public static function track_playing() {
+        return '正在播放 ' . self::$track_name;
+    }
+再回到浏览器上看一下 ...  
+现在，就会显示 正在播放 Magic 这个字符串了 ...
+
+
+08-在子类里去引用父类-Parent
+
+parent 这个关键词可以让我们在子类里面去引用在父类里面公开的或者受保护的方法，或者也可以去引用在父类里面的静态的属性。
+先打开 index.php  ... 这里有两个属性 ..  track_name ，它是一个公开的静态的属性 ... 还有 track_artist  ... 是一个公开的属性 ..  另外还有一个方法 .. track_playing() ..  我们把这里的 static 先去掉 ... 让它变成一个普通公开的方法 ... 
+在下面 Player 这个类，继承了上面的 Track 类  ... 
+在这个类里，只定义了一个 the_track_name 方法 ...   在这个方法里，如果想要去引用父类里的属性 ...  可以使用 parent ...  后面加上两个冒号 .. 也就是范围解析操作符 ..  然后是静态的属性的名称 ..  track_name  .. 
+class Player extends Track
+{
+    public function the_track_name() {
+        return parent::$track_name;
+    }
+}
+在下面， 再去基于 Player 这个类创建一个对象 ...  然后调用对象的 the_track_name() 这个方法 ...  
+$my_player = new Player();
+echo $my_player->the_track_name();
+回到浏览器 ...  会显示 Magic 这个字符串 ... 这个字符串是 Track 这个类里面，track_name 这个静态属性的值 ... 因为我们在 Player 类里，使用了 parent 来引用了它的父类的 track_name 这个静态属性，所以，在这里会显示出这个属性里的值。
+下面再试一下 track_artist 这个属性 ...    回到 index.php ...   track_name 换成 track_artist ...  回到浏览器 ... 提示：Fatal error: Access to undeclared static property: Track::$track_artist
+不能访问没有定义的静态属性，Track::$track_artist ... 
+这是因为，在 Track 这个类里，track_artist 属性不是一个静态的属性，所以在它的子类里面使用 parent 引用这个属性的时候，就会出现这样的错误提示。也就是说，我们只能使用 parent 去引用父类里面的静态的属性。
+下面，可以再去试一下，引用父类里的方法 ...  同样使用 parent 关键词 ... 加上方法的名称 ... track_playing()
+class Player extends Track
+{
+    public function the_track_name() {
+        return parent::track_playing();
+    }
+}
+再回到浏览器...  显示正在播放 Magic ...
+
+
+09-复制与克隆对象
+
+在 PHP 里面，复制一个对象，其实就是去引用一个对象，如果你改变了复制的对象里的属性，原来被复制的对象也会改变。也就是这两个对象引用的其实是一个东西，改变了其中的一个，另一个也会跟着改变。
+如果想真正的去复制一个对象，我们可以使用克隆，这样两个对象会是完全不同的东西，相互没有任何的影响。下面我们可以通过几个演示来理解一下复制和克隆对象。
+先去创建一个 Track 对象的实例 ...  叫它 magic ...  再去设置一下这个对象的 track_name 属性的值。
+$magic = new Track();
+$magic->track_name = 'Magic';
+下面，我们可以去复制一份这个 magic 对象 ...   叫做 magic_mix ..
+$magic_mix = $magic;
+再把这两个对象使用 print_r 输出到屏幕上 ... 
+print_r($magic);
+print_r($magic_mix);
+你会看到这们的 track_name 这个属性的值都是 Magic 这个字符串 ...  下面，我们可以再去修改一下 ...  回到 index.php ...  去改一下复制的这个 $magic_mix 这个对象的 track_name 属性的值 ... 改成 Magic Mix
+$magic_mix->track_name = 'Magic Mix';
+保存 ... 回到浏览器 ...  现在 ...  magic 还有 magic_mix 这两个对象里的 track_name 这个属性的值 ... 都会是Magic Mix ....  因为这两个对象指向的是同一个东西 ... 所以，我们使用 magic_mix 这个对象改变了 track_name 的值  ...  另外那个 magic 对象也会受到影响 ... 
+想要它们互不相干的话 ... 可以使用克隆 ... 
+使用 clone 这个关键词 ...  去克隆一个 magic 对象 ...  然后把这个克隆之后的对象交给 magic_mix ... 
+在下面，还是修改一下 magic_mix 里的 track_name ...
+再回到浏览器 .... 
+这回你会发现 ...  magic 对象里面的 track_name ，还有 magic_mix 这个对象里面的 track_name 是不同的值。
+
+
+10-克隆对象时要做的事-__clone()
+
+__clone
+PHP 里面有一个叫做 __clone 的魔术方法 ...  这会在对象被克隆的时候自动被调用 ...  如果你想在克隆对象的时候去做点事的话，可以把要做的事，放在这个 __clone 方法里面。
+下面，我们在 Track 这个类里面去使用空上 __clone 方法 ...  这样如果有人克隆属于 Track 的类的对象的时候，就会去执行这个函数。 先输入 public function ... 然后输入两个下划线 ...  clone ..  一般魔术方法都会使用两个下划线开头 ... 
+在这个函数里，可以去设计一下要做的事情 ... 这里我们只是简单的在 track_name 这个属性的值的后面，加上一个 副本 这两个字 ... 
+    public function __clone() {
+        $this->track_name .= ' 副本';
+    }
+这样，如果克隆了 Track 类的对象的时候，在不设置 track_name 这个属性的值的情况下，会在这个属性的值的后面加上 副本 这两个字。
+注释掉这行设置 track_name 的代码 ... 
+//$magic_mix->track_name = 'Magic Mix';
+回到浏览器 ....
+你会看到，克隆以后的 magic_mix 这个对象的 track_name 属性的值的后面 ... 会加上 副本 这两个字。
+
+
+11-构造函数-创建对象之前做点事-__construct()
+
+在类里面，我们可以使用 __construct() 这个魔术方法，它是一个构造函数，这个函数会在创建对象的时候提前被自动调用。你想在创建对象之前去做点事，比如去初始化一些东西，从数据库里面提取数据等等。这些在创建对象之前必须要做的事情，都可以放在 __construct() 这个构造函数里面。
+打开 index.php ，在这个 Track 类里面，可以使用一个 __construct 函数 ...   public function __construct ...  在这个函数里，我们可以简单在屏幕上输出点文字  ...  初始化数据 ...  在它前面可以加上这个类的名称 ...  __CLASS__  可以表示这个类的名称 ... 
+    public function __construct() {
+        echo '初始化数据...';
+    }
+然后在下面，去创建一个 Track 类的对象 ...  
+$magic = new Track();
+保存 ... 回到浏览器 .... 会显示 Track 初始化数据 ... 
+在子类中覆盖
+在子类里面，我们同样可以使用 __construct() 函数去定义一下在子类里面创建对象的时候要做的事。这样，会覆盖掉父类里面定义的 __construct ... 
+回到 index.php .. 
+Player 这个类是 Track 类的子类，在这个类里，我们可以再去用一个 __construct() ...   public function __construct .... 同样是在屏幕上输出点内容 ..
+    public function __construct() {
+        echo __CLASS__ . ' 初始化播放器...';
+    }
+在下面，再去创建一个 Player 对象 ... （#去掉 $magic = new Track()）
+$my_player = new Player();
+回到浏览器 ...  会显示 Player 初始化播放器 ... 
+在子类里面，重新定义父类里的方法，可以覆盖掉父类的方法 ...   在覆盖的时候，我们可以使用 parent 这个关键词，去引用父类里的方法 ...  回到 index.php ... 
+比如这里我们在 Player 的构造函数里，需要先去执行一下父类里的构造函数 ... 可以这样 ...  parent ... 冒号冒号 ...  __construct()
+parent::__construct();
+保存 ... 回到浏览器 ... 
+会显示，Track 初始化数据 ... 这行文字是在 Track 类的构造函数里要显示的内容 ...  接着是 Player 初始化播放器 ... 这行文字是在 Player 这个类里的构造函数要显示的内容。
+
+
+12-设置器与获取器
+
+一个类就相当于是一个小程序的一个包装，里面有数据，还有方法，我们要尽量隐藏类里面的数据和方法，然后只提供必要的接口给其它的类去使用。这是面向对象程序设计的一个重要的特点。
+设置器就是一个可以设置对象属性的工具。如果我们把对象的属性标记为公开，那么在外部可以直接去设置属性的值。通常我们不希望这样。因为很可能在设置属性值的时候，你需要做些其它的事情，比如验证这个值是不是有效的，是不是符合我们的设计。
+这样，我们就可以在类里设置一些设置器，英文叫 setters ...  通过这些工具去设置属性的值。
+同样，获取到属性的值，我们也不希望直接可以在外部获取到，因为我们很可能要验证用户的身份或者做一些其它的判断。可以使用获取器去获取属性的值。英文是 getters ... 
+设置器与获取器其实就是在类里面定义的一些方法。
+
+
+13-设置器-setters
+
+这个视频我们看一下在类里去设计一个用来设置属性值的设置器。
+我们可以先把 Track 这个类里面的 track_name 这个属性设置成私有的属性 ... 这样在外部就不能直接设置或者获取到它的值了 ...
+把 public 换成 private ... 
+private $track_name;
+再下面，去创建一个 Track 对象  ...  试着去访问一下 track_name 这个属性 ... 
+$magic = new Track();
+$magic->track_name = 'Magic';
+回到浏览器 .. 提示不能访问 track_name 这个私有的属性  ...
+回到 index.php ... 下面，我们可以去设置一个方法，通过这个方法去设置 track_name 这个属性的值 ...  这个方法必须是一个公开的方法，这样在类的外部，才能去调用它。我们可以叫它 set_track_name() ... 这个方法要支持一个参数 ...  可以叫它 $value ...  
+在这个方法里，要做的事就是把对象的 track_name 这个属性的值 ... 设置成调用 set_track_name 这个方法的时候传递的参数的值。这样如果想要设置 track_name 属性的值，就可以通过调用这个 set_track_name 方法去做。
+public function set_track_name($value) {
+     $this->track_name = $value;
+}
+在这个方法里，你也可以根据需求去加些其它的东西，比如检查一下设置值的类型，过滤值的内容等等  ... 
+先注释掉这行代码：
+$magic->track_name = 'Magic'; 
+然后调用 magic 这个对象的 set_track_name 方法 ... 调用的时候，传递一个值  ... 这个值就是要给 track_name 属性设置的值。
+$magic->set_track_name('Magic');
+再把 $magic 这个对象使用 print_r 输出到屏幕上 ... 
+print_r($magic);
+保存一下 ...  回到浏览器 ... 
+你会发现，现在 magic 这个对象的 tarck_name 属性的值就被设置成了 Magic 。
+
+
+14-获取器-getters
+
+设置器去设置属性的值，获取器就是用来获取属性值的工具。下面，我们可以在 Track 这个类里面，再去定义一个方法，用这个方法去获取 track_name 这个属性的值。
+同样需要把这个方法设置成一个公开的方法 ...  public function ... 可以叫它 get_track_name ... 它要做的事就是，返回 track_name 这个属性的值 ...  当然在这个方法里，你可以去做更复杂的事情 ... 比如去验证用户的身份。
+    public function get_track_name() {
+        return $this->track_name;
+    }
+在下面，我们再调用 magic 这个对象的 get_track_name 这个方法，去获取到 track_name 这个属性的值。前面加个 echo ，把得到的值，直接输出到屏幕上 ... 
+echo $magic->get_track_name(); 
+再注释掉这行代码  ...
+// print_r($magic);
+保存 ... 回到浏览器  ...  这里会显示出使用 get_track_name 方法获取到的 track_name 这个属性的值。
+
+
+15-设置不可见的属性自动调用的函数-__set
+
+__set 这个魔术方法可以在设置对象里的私有，受保护或者不存在的属性值的时候自动被调用。下面，我们可以在 Track 这个类里去使用这个方法。
+public function __set() .. 这个方法有两个参数 .. $name ，还有 $value ... $name 就是要设置的属性 ... $value 是属性的值 ... 
+在这个函数里，我们可以简单的把对象的属性的值，设置成要设置的值 ... 
+    public function __set($name, $value) {
+        $this->$name = $value;
+    } 
+在下面，同样去创建一个 Track 类的实例 ...  然后再去设置一下 track_name 这个属性的值  ...  设置成 Magic ...  这样，track_name 这个属性就是 __set 这个方法的第一个参数 ...  也就是那个 $name 参数 ...  等号右边的这个值，会作为 __set 方法里面的第二个参数 ... $value 参数 ... 
+再把 magic 这个对象，用 print_r 输出到屏幕看一下 ... 
+$magic = new Track();
+$magic->track_name = 'Magic';
+print_r($magic); 
+你会发现，magic 这个对象的 track_name 属性的值就被设置成了 Magic ... 因为 track_name 是一个私有的属性 ... 所以在设置它的时候，会自动去调用 __set() 这个魔术方法去设置它的值 ...
+
+
+16-设置一个不存在的属性
+
+下面，我们再去试试去设置一个对象里不存在的属性 ...  比如设置一下 $magic 这个对象的 duration 属性 ...   让它等于 3 分钟 ... 
+$magic->track_duration = '3分钟';
+回到浏览器 ... 你会发现，在 magic 这个对象里，会包含这个 duration 属性，还有一个对应的值 ...  
+设置这种不存在的属性的时候，同样会去调用在类里面定义的  __set 方法 ...   这样也就会去设置这个属性还有它的值。
+不过在这个函数里面，我们也可以限制一下，让用户只能去设置在类里面已经存在的属性的值  ..   回到 Track.php  ... 
+在 __set 函数里，可以加上一个 if ，去判断一下 .. 判断的条件是属性已经存在了 ...  可以使用 property_exists 这个函数  ...  这个函数有两个参数，第一个参数是要判断的对象  ...  这里用 $this 来表示  ....  第二个参数是要判断的属性 ...  用 $name 来表示  ...    如果属性在对象里面存在的话 ... 这个函数就会返回 true  .... 
+        if(property_exists($this, $name) ) {
+            $this->$name = $value;
+        }
+保存 ... 回到浏览器...  
+现在，我们在这个 magic 对象里面，就看不到设置的那个 duration 属性了 ... 因为这个属性在对象里面是不存在的 ....   所以我们就不能去设置它了。
+
+
+17-获取不可见的属性自动调用的函数-__get
+
+跟 __set 对应的，还有一个 __get 方法，它会在获取不可见的属性的时候自动被调用。打开 index.php ... 在这个 Track 类里，我们再去定义一个 __get 方法。
+public function 两个下划线 ... get ...   这个方法有一个参数，就是要获取的属性的名称 ...  $name ... 
+在这个方法里，我们可以简单的把想要获取的属性的值返回来。
+    public function __get($name) {
+        return $this->$name;
+    }
+在下面，我们去获取一下 track_name 这个属性的值  ... 
+echo $magic->track_name;
+保存 ... 回到浏览器 ... 在屏幕上会显示 magic 对象里的 track_name 这个属性的值  ...  这个属性是一个私有属性，所以，在访问它的时候，会去自动调用 __get 函数 ... 目前这个函数做的事就是去返回属性的值。
+
+
+18-限制访问的属性
+
+如果你不想使用 __get 方法获取到对象里的所有的属性的值，也就是，你只想让指定的属性可以使用 get 方法获取到。
+我们可以再去设置一下 ...  先在类里面去定义一个私有的属性 ... 这个属性是一个数组，在这个数组里，可以包含你允许访问的属性 ...  这个数组可以叫它 white_list ... 数组里面的项目就是允许访问的属性的名称 ...  先设置一个 track_name ... 
+private $access = array('track_name')
+为了演示一下，在上面，再去定义一个属性 ...  叫做 track_artist ..
+private track_artist 
+然后在 __get 函数里面，返回属性值之前先去判断一下，这个属性是不是在 access 这个数组里，也就是我们允许访问的属性的这个数组。如果在里面，就返回属性的值 ... 如果不在的话，就返回一个 NULL ... 
+    public function __get($name) {
+        if(in_array($name, $this->access)) {
+            return $this->$name;
+        } else {
+            return NULL;
+        }
+    } 
+在下面，再设置一下 magic 这个对象的 track_artist 属性的值 ..
+$magic->track_artist = 'Coldplay';
+下面，先试一下访问 track_name 这个属性 ... 回到浏览器 ... 会显示这个属性的值 ... 因为这个属性包含在 access 这个允许访问的属性的数组里面。
+回过来，再试一下去访问 track_artist ...   回到浏览器 ... 
+没有任何的显示 ... 因为这个属性不在我们自己设置的允许访问的属性的数组里。
+
+
+19-抽象类-abstract classes
+
+abstract classes ，就是抽象类。抽象类不能被实例化，只能作为其它类的一个父类。也就是说，你可以创建类，然后让它去继承定义为抽象类的类。
+在设计类的时候，你会发现，有些类不需要去被实例化，而是去实例化继承它的那个类。这个时候，你可以把这种类型的类， 去定义成一个抽象类。
+在抽象类里，可以去提供基本的属性和方法，然后继承它的类就会拥有这些属性和方法了。除了不能被实例化以外，抽象类跟普通的类没有什么区别。
+(#视频)
+定义抽象类
+下面，我们去定义一个抽象类 ...  打开 index.php .. 
+定义抽象类需要使用 abstract 这个关键词 ... 后面是 class ，然后是类的名称 ...  我们叫它 Entity，实体 ...   给它在添加点属性还有方法 ...  先添加一个 protected ，受保护的属性.. 叫做 entity_type，实体类型 ... 
+再添加一个公开的方法 ... 叫做 get_entity_type ...   它做的事就是去返回 entity_type 实体类型这个属性的值 ... 
+abstract class Entity
+{
+    protected $entity_type;
+    public function get_entity_type() {
+        return $this->entity_type;
+    }
+}
+这个 Entity 类就是一个抽象类，因为我们定义它的时候，用了一个 abstract 关键词 ..  抽象类是不能被实例化的 ... 我们可以试一下 ... 
+$entity = new Entity();
+保存，回到浏览器 ..  提示 Fatal error: Cannot instantiate abstract class Entity ，不能实例化 Entity 这个抽象类 ... 
+我们可以再去创建两个类，让它们去继承这个抽象类 ... class User .. 创建一个叫 User 的类 ...  extends ...  去继承 ... Entity ...    在里面，再去给继承过来的 entity_type 属性一个值  ... 
+class User extends Entity {
+    protected $entity_type = 'user';
+} 
+再去定义一个类 ... class Post ... 让它也去继承 Entity 这个抽象类 .. 再给它的 entity_type 一个值 ... 叫做 post ... 文章  ... 
+class Post extends Entity {
+    protected $entity_type = 'post';
+} 
+下面，我们再去基于这两个类去创建两个对象 ...  然后去调用 get_entity_type 方法，去输出 entity_type 属性的值 ... 
+$user = new User();
+echo $user->get_entity_type() . '<br>';
+$post = new Post();
+echo $post->get_entity_type(); 
+保存 ... 回到浏览器 ... 
+这里会显示出两个对象的实体类型。 user 还有 post ...
+
+
+20-抽象方法-abstract method
+
+abstract 这个关键词可以用来定义抽象类 ...  我们也可以把它用在类里的方法上 ..  如果一个类里面使用 abstract 这个关键词定义了抽象的方法，那么这个类也应该被定义成一个抽象的类。抽象方法里不能包含主体内容，也就是用 abstract 标记的方法，应该是一个空白的方法。还有就是，继承抽象类的类里面，必须要定义抽象方法的方法。
+下面，我们在 Entity 这个抽象类里去定义一个抽象方法 ...  使用一个 abstract ...  public ... save() 定义了一个抽象的公开的方法，叫做 save ...  在抽象方法里，不能包含东西 ...   我们可以试一下，先它里面，返回一个字符串 ... 
+    abstract public function save() {
+        return '保存成功';
+    }
+保存 ... 打开浏览器 ...  提示 Fatal error: Abstract function Entity::save() cannot contain body ...  Entity 里面的 save 这个抽象方法不能包含主体。  回过来 ... 先去掉 save 这个抽象方法里的东西 ..   再保存一下 ... 回到浏览器 ...  这里又会显示一个错误 ...  Fatal error: Class User contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (Entity::save) ... 大概的意思就是，在 User 类里面，包含一个抽象方法 ... 你必须去定义这个方法。
+回到 index.php ...   因为 User 这个类继承了 Entity 这个抽象类，这个抽象类里包含了一个抽象的方法，所以，我们必须要在 User 这个类里面，去定义这个方法。public function save ... 注意，这个 save 方法的访问控制不能比 Entity 里面的 save 抽象方法更保守。
+也就是，如果在 Entity 里面，定义 save 方法的时候用了 protected ... 那么，在这个 User 类里面，save 方法可以使用 protected ，也可以是 public ，但是不能是 private ... 
+class User extends Entity {
+    protected $entity_type = 'user';
+    public function save() {
+        return $this->entity_type . '：保存成功！';
+    }
+}
+同样，在 Post 这个类里，也需要去定义这个 save 方法 ... 
+class Post extends Entity {
+    protected $entity_type = 'post';
+    public function save() {
+        return $this->entity_type . '：保存成功！';
+    }
+}
+再去这两个类的实例上，去调用这个 save 方法 ... 
+保存 ... 再去预览一下 ...    会显示 user：保存成功 ...  post：保存成功 ...
+
+
+21-接口-interface
+
+很多支持面向对象的语言里面都支持接口这个概念，英文是 interface ...  在面向对象这个情境下面，接口有点像是一个合同。也就是，我们可以定义接口，在这个接口里，可以定义一些空白的方法。
+然后在其它的类里面，可以去实施这个接口，在实施的时候必须要在类里面，包含所有在接口上定义的方法，这有点像是跟这个接口签订了合同，实施它的类，必须都要遵守这个合同。
+下面，我们去定义两个接口 ... 然后让一个类去实施它们。
+定义接口用的是 interface 这个关键词 ... 后面是接口的名称  ...  DataInterface ...  在这个接口里，可以去定义一些让实施它的类必须要定义的方法 ...  public function get_data();
+interface DataInterface {
+    public function get_data();
+}
+用类似的方法， 我们再去定义一个接口 ...  interface ... 这个接口叫它 EntityInterface ...  里面也包含一个方法 ... get_entity_type ... 注意，在接口里的方法必须是空白的，也就是不能包含方法的主体 ...  这跟抽象方法有点像 ... 
+interface EntityInterface {
+    public function get_entity_type();
+} 
+下面，我们可以再去定义一个类，然后让这个类去跟这两个接口签个合同 ... 也就是去实施它们 ..  class Entity ...  后面加上关键词 implements ...  接着是实施的接口的名称 ...  先输入 DataInterface ... 如果在这个类里还需要实施其它的接口 ... 可以用一个逗号分隔一下 ...  EntityInterface ... 
+下面，我们可以看一下如果不在这个类里面去定义接口上的方法，会发生什么  ... 保存 ...  回到浏览器 ... 
+会出现一个错误提示 .. 意思就是，你需要在 Entity 这个类里面去定义它所实施的接口里面的方法 ... 
+回到 index.php ...  先定义一下在 DataInterface 这个接口里面的 get_data 这个方法 ...
+    public function get_data() {
+        return '数据...';
+    } 
+然后再去定义在 EntityInterface 这个接口里面的 get_entity_type 这个方法 ... 
+    public function get_entity_type() {
+        return '类型...';
+    }
+ 保存 .. 回到浏览器 ...   现在就不会显示错误了 ... 
+instanceof
+再回到 index.php ... 使用 instanceof ，可以去判断一个对象是否属于某个指定的类。先去创建一个 Entity 对象的实例 ..
+$entity = new Entity();
+然后去判断一下 entity 属不属于 Entity 这个类 .. 也就是 entity 是否是 Entity 这个类的一个实例 ...   我们可以把结果输出使用 var_dump 输出到屏幕上..  同样，我们可以再去判断一下 entity 这个对象，是不是 EntityInterface 还有 DataInterface 的实例 ... 
+var_dump($entity instanceof Entity);
+var_dump($entity instanceof EntityInterface);
+var_dump($entity instanceof DataInterface);
+保存  ... 回到浏览器 ... 
+你会看到，三个结果都是 ture ...  也就是说 entity 这个对象即属于 Entity 这个类的实例，因为 Entity 这个类实施了  EntityInterface ，还有 DataInterface 接口 ... 所以它的实例也会被认为是这些接口的实例。
+
+
+22-Traits
+
+Traits 有点像是定义的一些小的类，在 Traits 里面，可以去定义一些常用的方法。然后你可以把定义好的 Traits 应用在其它的类里面，这样在这个类里面，你就可以去使用在 Traits 里面定义的方法了。
+注意 Traits 是从 PHP 5.4 以后新加的一个功能。如果你用的是 5.4 以前版本的 PHP  ，就不能使用 Traits 了。
+下面，我们来看一下怎么样使用 Traits ...  先去定义一个 ... 
+使用关键词 trait ... 然后是它的名称  ...   叫它 GetData ...  在这个 trait 里面，可以去添加一些方法。这里我们先只给它添加一个公开的方法 ... public function ... 叫做 get_data() .. 这个方法做的事就是返回一个字符串 ..   获取数据 ... 
+trait GetData
+{
+    public function get_data() {
+        return '获取数据...';
+    }
+}
+下面，再用类似的方法去创建一个 trait ...  叫它 SetData ...  给它也添加一个方法 ...   public function ...  这个方法叫做 set_data ...  它要做的事也很简单 ... 返回一个字符串 ...
+trait SetData
+{
+    public function set_data() {
+        return '设置数据...';
+    }
+} 
+这样在我们应用里，创建其它类的时候，如果需要，可以使用这些 trait ...   class Entity ... 在类里面，使用 trait ，用的是 use 这个关键词 ... 后面加上 trait 的名称  ...  不同的 trait 之间可以使用逗号分隔一下 ..
+class Entity
+{
+    use GetData, SetData;
+} 
+这样在这个 Enttiy 类里面，就会包含 GetData ，还有 SetData 这两个 trait 里面定义的方法了 ... 下面去试一下 ... 
+创建一个 Entity 对象的实例 ...  在调用 get_data 还有 set_data 这两个方法 ...   把结果输出到屏幕上 ... 
+$my_entity = new Entity();
+print_r($my_entity->get_data());
+print_r($my_entity->set_data()); 
+保存，再去预览一下 ..  这里会显示 get_data 还有 set_data 这两个方法里面返回来的内容 ...   注意这两个方法并不是在 Entity 这个类里面定义的 ... 而是在这个类使用的两个 trait 里面定义的。
+
+
+23-自动载入类文件-SPL
+
+对于一般的小型的应用，使用 require ，把需要的文件包含进来是可以的。但是如果是一个大型的应用，你可能需要包含一个很长的文件列表 ...   我们可能还需要去维护这个列表 ...  比如应用里面如果添加了新的类，你需要把这个类所在的文件也包含进来。这样会比较麻烦。
+我们可以使用自动载入的方法来解决这个问题。也就是，在实例化类的时候，会去自动去载入它需要的文件。
+下面，我们去创建一个新的 php 文件，可以叫它 Autoload.php 
+在这个文件里，需要用到 spl_autoload_register 这个函数 ...  这个函数里面的参数，就是自动载入类文件的一段代码 ... 这段代码也是一个函数 .. . 
+输入 spl_autoload_register() ... 这里我们用一个匿名函数 ...   这个函数支持一个参数 ...  也就是类的名称  ...   然后我们需要定义这个类的文件的路径 ... $path 等于 ... 可以用一个 dirname 函数，输出 Autoload.php 这个文件的路径 ...  两个下划线FILE接着两个下划线表示当前这个文件 ...  
+后面加上一个斜线 ...   然后是类的名称  ...  后面是文件的扩展名 ...  点 php 
+在下面，去判断一下，如果这个类的文件存在的话 ...  就把它包含进来 ... 
+我们再看一下这段代码。它的意思就是，当需要用到类的时候，就会调用这个 spl_autoload_register 函数 ..   类的名称会传递到这个函数里面 ...  然后我们定义了一个路径，这个路径就是，Autoload.php 这个文件所在的目录下面的以类的名称为文件名的 php 文件。
+再判断一下这个文件是否存在，如果存在的话，就会把它包含进来。
+回到 index.php ...  这样我们就可以去掉直接用 require 包含进来的类的文件了。只需要把 Autoload.php 包含进来就行了。
+比如在实例化 Track 这个类的时候，PHP 会去调用 spl_autoload_register 这个函数 ..  然后把在 Autoload.php 所在目录下面的以这个类的名称命名的文件包含进来 ... 
+保存 ...  回到浏览器 ... 
+会输出同样的内容  ... 说明可以自动载入需要的类文件。
+
+
+24-命名空间-namespace
+
+在开发应用的时候，我们可能会用到第三方的框架，如果这些框架里面的类跟我们创建的类有重名的，就会发生冲突。
+命名空间就是一种解决类的命名冲突的方法。在应用程序里面，我们不能使用两个重名的类。就像是在操作系统里，同一个目录下面，不能包含两个同名的文件一样 .. 
+命名空间就有点像是给类的名称，创建一个单独的目录，这样不同的目录下面是可以包含同名的文件的。不过我们并不是去为类创建真正的目录，而是使用 namespace 这个关键词，为类去定义一串字符 ...  用它作为类的命令空间 ... 
+下面，我们先再去创建一个 php 文件，FlowPlayer.php ..  在这个文件里，假设有一个类 ... 这个类跟我们之前在 Player.php 文件里定义的类是一个名字 ...  就是 Player ...
+class Player
+{
+    public function start() {
+        return 'FlowPlayer 正在播放...';
+    }
+}
+回到 index.php ... 先去掉这个自动加载类文件的 Autoload.php ... 然后手工去包含 Player.php 还有 FlowPlayer.php 包含进来 ...
+require 'Player.php';
+require 'FlowPlayer.php';
+回到浏览器 ...  这里提示说 Fatal error: Cannot redeclare class Player ... 不能重复定义 Player 这个类 ...  下面，我们去解决一下这个问题 ... 
+分别去给 Player.php 还有 FlowPlayer.php 添加一个命名空间 ... 
+打开 Player.php ...   在文件的顶部 ... 输入 namespace ... 接着是命名空间 ...  比如 Ninghao  ...  后面加上反斜线 ... 可以继续去定义 ...  App ... 
+namespace Ninghao\App;
+再打开 Flowplayer.php  ...  给它也添加一个命名空间 ..  namespace ... Flowplayer ...   这里我们只用一个词作为它的命名空间 ... 
+回到浏览器 ... 刷新  ...  错误就会不见了 ... 因为我们使用了命名空间 ... 所以 Player.php 还有 Flowplayer.php 里面定义的类就不会有冲突了 ...
+再打开 index.php ... 
+现在，如果我们想要创建这两个类的实例 ...  需要指定这个命名空间 ...   比如去创建 Player.php 里面的 Player 这个类的实例 ... my_player 等于 ... new ...  这个类的命名空间是 Ninghao 反斜线 ... App ...  然后再一个反斜线 ... 再加上这个类的名称  ...  Player ... 
+再去调用这个对象的 start 方法 ...   下面，再去创建一个 Flowplayer.php 里面的 Player 对象的实例 ...  my_flowplayer 等于 new ... 它的命名空间是 Flowplayer ... 反斜线 ... 加上类的名称 ...  Player ... 
+同样再去调用这个对象的 start 方法 .. 
+$my_player = new Ninghao\App\Player();
+echo $my_player->start();
+$my_flowplayer = new Flowplayer\Player();
+echo $my_flowplayer->start();
+保存 ... 回到浏览器 ... 
+一切都工作正常 ...
+
+
+25-命名空间-use, as
+
+使用 use 可以指定使用的类，这样在创建这个类的实例的时候，直接使用类的名称就可以了，不需要再去指定类的命名空间 ... 
+打开 index.php ..  在文件的上面 ... 输入 use Ninghao\App\Player;   这样在创建这个 Player 实例的时候，直接使用这个类的名称就行了。
+use Ninghao\App\Player;
+$my_player = new Player();
+同样，可以再用一个 use ... 设置一下 Flowplayer ..  use Flowplayer 反斜线 Player ...  实例化这个类的时候，也可以直接使用类的名称  ... 
+use Flowplayer\Player;
+$my_flowplayer = new Player();
+不过，现在有一个问题 ... 因为这两个类的名称是一样的 ...  都是 Player ..   这个时候，我们可以去使用 as ，去指定一个别名 ... 
+比如给这个 Flowplayer\Player 指定一个别名 ...   加上一个 as ... 然后是这个类的别名 ...   叫它 FlowPlayer ... 
+这样在创建 Flowplayer\Player 类的实例的时候，可以使用它的别名 ...  FlowPlayer ... 
+$my_flowplayer = new FlowPlayer();
+保存 .. 回到浏览器 ... 
+同样可以正常工作 ...
+
+
