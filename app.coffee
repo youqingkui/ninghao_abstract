@@ -215,14 +215,51 @@ class GetCourse
 
 
 
+class checkPage extends GetCourse
+  constructor: (@startUrl = 'http://ninghao.net/course?page=2') ->
+    @nextUrl = []
+    super
 
-down = new GetCourse()
-down.getCourseUrl (err, courseArr) ->
+
+  getPageUrl: (cb) ->
+    self = @
+
+    request.get @startUrl, (err, res, body) ->
+      return cb(err) if err
+
+      $ = cheerio.load(body)
+      nextUrl = $("li.next a").attr('href')
+      if nextUrl
+        nextUrl = 'http://ninghao.net' + nextUrl
+        self.nextUrl.push(nextUrl)
+        self.startUrl = nextUrl
+        self.getPageUrl(cb)
+      else
+        cb()
+
+
+page = new checkPage()
+page.getPageUrl (err) ->
   return console.log err if err
 
-  down.tryDown courseArr, (err2) ->
-    if err2
-      return console.log err2
+  console.log page.nextUrl
+
+
+
+
+
+
+
+
+
+
+#down = new GetCourse()
+#down.getCourseUrl (err, courseArr) ->
+#  return console.log err if err
+#
+#  down.tryDown courseArr, (err2) ->
+#    if err2
+#      return console.log err2
 
 
 
