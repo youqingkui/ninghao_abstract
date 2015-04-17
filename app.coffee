@@ -185,13 +185,12 @@ class GetCourse
       $ = cheerio.load(body)
       courseArr = $(".course-list .span4 > a")
 
-      return cb("getCourseUrl没有发现链接")if not courseArr.length
+      return cb("getCourseUrl没有发现链接") if not courseArr.length
 
       cb(null, courseArr)
 
   tryDown: (courseArr, cb) ->
     async.eachSeries courseArr, (item, callback) ->
-      $ = cheerio.load(item)
       url = 'http://ninghao.net' + item.attribs.href
       console.log "tryDown url =>", url
       down = new DownCourse(url)
@@ -210,14 +209,11 @@ class GetCourse
 
 
 
-
-
-
-
-
 class checkPage extends GetCourse
-  constructor: (@startUrl = 'http://ninghao.net/course?page=2') ->
+  constructor: (@startUrl = 'http://ninghao.net/course') ->
     @nextUrl = []
+    @nextUrl.push(@startUrl)
+
     super
 
 
@@ -238,11 +234,49 @@ class checkPage extends GetCourse
         cb()
 
 
-page = new checkPage()
-page.getPageUrl (err) ->
-  return console.log err if err
 
-  console.log page.nextUrl
+
+
+
+
+
+
+
+async.auto
+  getPage:(cb) ->
+    page = new checkPage('http://ninghao.net/course?page=1')
+    page.getPageUrl (err) ->
+      return cb(err) if err
+
+      cb(null, page.nextUrl)
+
+  downUrlList:['getPage', (cb, result) ->
+    console.log "downUrlList here"
+    urlArr = result.getPage
+
+    async.eachSeries urlArr, (item, callback) ->
+      down = new GetCourse(item)
+      down.getCourseUrl (err1, courseArr) ->
+        return callback(err1) if err1
+        down.tryDown courseArr, (err2) ->
+          return callback(err2) if err2
+
+          callback()
+
+    ,(eachErr) ->
+      return cb(eachErr) if eachErr
+
+      cb()
+
+  ]
+
+,(autoErr) ->
+    return console.log autoErr if autoErr
+
+    console.log "all page do"
+
+
+
 
 
 
