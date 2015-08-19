@@ -2,6 +2,9 @@ request = require("request")
 async   = require("async")
 fs      = require("fs")
 cheerio = require("cheerio")
+inlineCss = require('inline-css')
+noteStore = require('./noteStore')
+makeNote  = require("./makeNote")
 
 #ninghao = (@courseUrl) ->
 #  @courseName = 'ninghao.net'
@@ -241,39 +244,158 @@ class checkPage extends GetCourse
 
 
 
+#
+#async.auto
+#  getPage:(cb) ->
+#    page = new checkPage('http://ninghao.net/course?page=0')
+#    page.getPageUrl (err) ->
+#      return cb(err) if err
+#
+#      cb(null, page.nextUrl)
+#
+#  downUrlList:['getPage', (cb, result) ->
+#    console.log "downUrlList here"
+#    urlArr = result.getPage
+#
+#    async.eachSeries urlArr, (item, callback) ->
+#      down = new GetCourse(item)
+#      down.getCourseUrl (err1, courseArr) ->
+#        return callback(err1) if err1
+#        down.tryDown courseArr, (err2) ->
+#          return callback(err2) if err2
+#
+#          callback()
+#
+#    ,(eachErr) ->
+#      return cb(eachErr) if eachErr
+#
+#      cb()
+#
+#  ]
+#
+#,(autoErr) ->
+#    return console.log autoErr if autoErr
+#
+#    console.log "all page do"
 
-async.auto
-  getPage:(cb) ->
-    page = new checkPage('http://ninghao.net/course?page=1')
-    page.getPageUrl (err) ->
-      return cb(err) if err
 
-      cb(null, page.nextUrl)
 
-  downUrlList:['getPage', (cb, result) ->
-    console.log "downUrlList here"
-    urlArr = result.getPage
 
-    async.eachSeries urlArr, (item, callback) ->
-      down = new GetCourse(item)
-      down.getCourseUrl (err1, courseArr) ->
-        return callback(err1) if err1
-        down.tryDown courseArr, (err2) ->
-          return callback(err2) if err2
+class Abstract
+  constructor:(@url) ->
+    @urlList = []
+    @content = ""
+    @courseTitle
 
-          callback()
+  getCourseUrl:(cb) ->
+    self = @
+    request.get self.url, (err, res, body) ->
+      return console.log err if err
+      $ = cheerio.load(body)
+      $("div.section").remove()
+      title = $(".course-info h1")
+      if not title.length
+        return cb("not find title")
 
-    ,(eachErr) ->
-      return cb(eachErr) if eachErr
+      self.courseTitle = title.text()
+
+      urlList = $(".item .content .header a")
+      if not urlList.length
+        return cb("not find url list")
+
+      for i in urlList
+        tmp = {}
+        tmp.title = $(i).text()
+        tmp.url = "http://ninghao.net" + $(i).attr("href")
+        self.urlList.push tmp
+
+
+      console.log "课程:", self.title
+      console.log "数量", self.urlList.length
 
       cb()
 
-  ]
+  getAbstract:(data, cb) ->
+    console.log "get ", data.url, data.title
+    self = @
+    async.waterfall [
+      (callback) ->
+        request.get data.url, (err, res, body) ->
+          return console.log err if err
 
-,(autoErr) ->
-    return console.log autoErr if autoErr
+          $ = cheerio.load(body)
 
-    console.log "all page do"
+          text = $("#info")
+          if not text.length
+            return cb("not find text", data.url, data.title)
+
+          callback(null, body)
+
+      (body, callback) ->
+        inlineCss body, {url:'/'}, (err, html) ->
+          return console.log err if err
+
+          callback(null, html)
+
+      (html, callback) ->
+        $ = cheerio.load(html)
+        text = $("#info").html()
+        self.content += "<h3>#{data.title}</h3><br/><br/>"
+        self.content += "#{text}<br/></br/>"
+        cb()
+    ]
+
+  getContent:(cb) ->
+    self = @
+    async.eachSeries self.urlList, (item, callback) ->
+      self.getAbstract item, callback
+
+    ,(err) ->
+      return console.log err if err
+      $ = cheerio.load(self.content)
+      self.content = $.html({xmlMode:true, decodeEntities: true})
+      write = fs.createWriteStream(self.courseTitle + ".txt")
+      write.write self.content
+      cb()
+
+  createNote:(cb) ->
+    self = @
+    makeNote noteStore, self.courseTitle, self.content, {} , (err) ->
+      return console.log err if err
+
+      console.log "create ok"
+
+      cb()
+
+
+  pushNote:(cb) ->
+    self = @
+    async.waterfall [
+      (callback) ->
+        self.getCourseUrl callback
+
+      (callback) ->
+        self.getContent callback
+
+      (callback) ->
+        self.createNote callback
+
+
+    ]
+
+
+
+
+
+
+t = new Abstract("http://ninghao.net/course/1444")
+t.pushNote()
+#t.getCourseUrl (err) ->
+#  console.log err
+
+
+
+
 
 
 
