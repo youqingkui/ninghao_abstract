@@ -321,7 +321,7 @@
 
   })();
 
-  t = new Abstract("http://ninghao.net/course/1444");
+  t = new Abstract("http://ninghao.net/course/2686");
 
   t.pushNote();
 

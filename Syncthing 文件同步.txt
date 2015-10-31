@@ -1,0 +1,302 @@
+<h3>&#x4ECB;&#x7ECD;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">Syncthing &#x662F;&#x4E00;&#x6B3E;&#x5F00;&#x6E90;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#x8F6F;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8BBE;&#x5907;&#x4E4B;&#x95F4;&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x540C;&#x6B65;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x5F53;&#x8FD9;&#x4E9B;&#x76EE;&#x5F55;&#x91CC;&#x7684;&#x4E1C;&#x897F;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E9B;&#x53D8;&#x5316;&#x4F1A;&#x540C;&#x6B65;&#x5230;&#x5176;&#x5B83;&#x6240;&#x6709;&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#x3002;</p>
+<p style="margin: 0 0 20px;">Syncthing &#x4F1A;&#x540C;&#x6B65;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x8FD8;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x3002;&#x5B83;&#x4F1A;&#x81EA;&#x52A8;&#x4E3A;&#x6BCF;&#x53F0;&#x8BBE;&#x5907;&#x751F;&#x6210;&#x4E00;&#x4E2A; ID&#xFF0C;&#x628A;&#x8FD9;&#x4E2A; ID &#x544A;&#x8BC9;&#x7ED9;&#x5176;&#x5B83;&#x7684;&#x8BBE;&#x5907;&#xFF0C;Syncthing &#x4F1A;&#x81EA;&#x52A8;&#x641C;&#x7D22;&#x5230;&#x8FD9;&#x53F0;&#x8BBE;&#x5907;&#xFF0C;&#x901A;&#x8FC7;&#x4E92;&#x8054;&#x7F51;&#x6216;&#x8005;&#x5C40;&#x57DF;&#x7F51;&#x53BB;&#x540C;&#x6B65;&#x6587;&#x4EF6;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x5B83;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A; Web &#x754C;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x53BB;&#x914D;&#x7F6E;&#x540C;&#x6B65;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x8FD8;&#x6709;&#x7BA1;&#x7406;&#x540C;&#x6B65;&#x7684;&#x8BBE;&#x5907;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x5728;&#x8FD9;&#x4E2A;&#x8BFE;&#x7A0B;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x672C;&#x5730;&#x521B;&#x5EFA;&#x4E24;&#x53F0; Linux &#x7CFB;&#x7EDF;&#x7684;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x7136;&#x540E;&#x53BB;&#x5B89;&#x88C5;&#x914D;&#x7F6E;&#x4E00;&#x4E0B; Syncthing &#xFF0C;&#x5728;&#x8FD9;&#x4E24;&#x53F0;&#x865A;&#x62DF;&#x673A;&#x4E4B;&#x95F4;&#x8BBE;&#x7F6E;&#x9700;&#x8981;&#x540C;&#x6B65;&#x7684;&#x76EE;&#x5F55;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x51C6;&#x5907;&#x865A;&#x62DF;&#x673A;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x6211;&#x4EEC;&#x5148;&#x53BB;&#x4E3A;&#x6D4B;&#x8BD5; Syncthing &#x5728;&#x672C;&#x5730;&#x521B;&#x5EFA;&#x4E24;&#x53F0;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x5148;&#x8FDB;&#x5165;&#x5230;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     cd ~/desktop</p>
+<p style="margin: 0 0 20px;">&#x5728;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x4E0B;&#x9762;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x76EE;&#x5F55;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     mkdir ninghao-syncthing</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x8FDB;&#x5165;&#x5230;&#x8FD9;&#x4E2A;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     cd ninghao-syncthing</p>
+<p style="margin: 0 0 20px;">&#x7136;&#x540E;&#x5148;&#x7528; vagrant &#x53BB;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;&#x7684; box &#x662F; chef/centos-7.0</p>
+<p style="margin: 0 0 20px;">     vagrant init chef/centos-7.0</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x7528;&#x7F16;&#x8F91;&#x5668;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     atom .</p>
+<p style="margin: 0 0 20px;">&#x7F16;&#x8F91;&#x4E00;&#x4E0B; Vagrantfile&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x91CC;&#x53BB;&#x5B9A;&#x4E49;&#x4E24;&#x53F0;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x4E00;&#x4E2A;&#x53EB;&#x5B83; web1&#xFF0C;&#x7528; config.vm.define &#x53BB;&#x521B;&#x5EFA;&#xFF0C;&#x540D;&#x5B57;&#x662F; web1 &#xFF0C;&#x7528;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E5F;&#x662F; web1&#xFF0C;&#x518D;&#x53BB;&#x5B9A;&#x4E49;&#x8FD9;&#x53F0;&#x865A;&#x62DF;&#x673A;&#x7684;&#x4E00;&#x4E9B;&#x4E1C;&#x897F;&#xFF0C; web1.vm.hostname &#x5B9A;&#x4E49;&#x4E00;&#x4E0B;&#x865A;&#x62DF;&#x673A;&#x7684;&#x4E3B;&#x673A;&#x540D; ...   web1.vm.network &#xFF0C;&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B;&#x865A;&#x62DF;&#x673A;&#x7684;&#x7F51;&#x7EDC;&#xFF0C;&#x7528; private_network&#xFF0C;&#x79C1;&#x6709;&#x7F51;&#x7EDC; ...  &#x518D;&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B; ip &#x5730;&#x5740;&#xFF0C;192.168.33.61 .. </p>
+<p style="margin: 0 0 20px;">  # web1<br/>
+  config.vm.define &quot;web1&quot; do |web1|<br/>
+    web1.vm.hostname = &quot;web1&quot;<br/>
+    web1.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.61&quot;<br/>
+  end</p>
+<p style="margin: 0 0 20px;">&#x4E0B;&#x9762;&#x518D;&#x7528;&#x540C;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x518D;&#x53BB;&#x5B9A;&#x4E49;&#x4E00;&#x53F0;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x9009;&#x4E2D;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x590D;&#x5236;&#x4E00;&#x4EFD;&#xFF08;&#x9009;&#x4E2D;&#xFF0C;shift + command + D&#xFF0C;command + F&#xFF0C;&#x9009;&#x4E2D;&#x53EA;&#x5728;&#x9009;&#x62E9;&#x4E2D;&#xFF09; ...  &#x518D;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x91CC;&#x9762;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x628A; web1 &#x66FF;&#x6362;&#x6210; web2  .. &#x518D;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x5B83;&#x7684; ip &#x5730;&#x5740; ..  192.168.33.62 .. </p>
+<p style="margin: 0 0 20px;">  # web2<br/>
+  config.vm.define &quot;web2&quot; do |web2|<br/>
+    web2.vm.hostname = &quot;web2&quot;<br/>
+    web2.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.61&quot;<br/>
+  end</p>
+<p style="margin: 0 0 20px;">&#x4FDD;&#x5B58; ...  &#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x7136;&#x540E;&#x53BB;&#x542F;&#x52A8;&#x4E00;&#x4E0B;&#x8FD9;&#x4E24;&#x53F0;&#x865A;&#x62DF;&#x673A;&#x3002;</p>
+<p style="margin: 0 0 20px;">     vagrant up</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x4E0B;&#x8F7D; Syncthing</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x6700;&#x65B0;&#x7684; Syncthing &#x53EF;&#x4EE5;&#x5728; Github &#x4E0A;&#x4E0B;&#x8F7D;&#x5230;&#xFF0C;&#x5148;&#x6253;&#x5F00; Syncthing &#x5728; Github &#x4E0A;&#x7684;&#x4ED3;&#x5E93;&#xFF1A;</p>
+<p style="margin: 0 0 20px;"><a href="https://github.com/syncthing/syncthing" style="color: #333; text-decoration: none;">https://github.com/syncthing/syncthing</a></p>
+<p style="margin: 0 0 20px;">&#x70B9;&#x51FB; releases&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x4F60;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x6700;&#x65B0;&#x53D1;&#x5E03;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x56E0;&#x4E3A; Syncthing &#x662F;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x8F6F;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x53D1;&#x4F1A;&#x73B0;&#x6709;&#x5F88;&#x591A;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x7684;&#x7248;&#x672C;&#x3002;&#x8981;&#x4E0B;&#x8F7D;&#x54EA;&#x4E00;&#x4E2A;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4E00;&#x4E0B;&#x6587;&#x4EF6;&#x540D;&#x91CC;&#x9762;&#x7684;&#x5173;&#x952E;&#x8BCD;&#xFF0C;&#x6BD4;&#x5982; linux &#xFF0C;&#x8868;&#x793A;&#x8FD9;&#x662F;&#x7528;&#x5728; linux &#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x8F6F;&#x4EF6;&#xFF0C;&#x540E;&#x9762;&#x8FD8;&#x6709;&#x8868;&#x793A;&#x67B6;&#x6784;&#x7684;&#x4E1C;&#x897F;&#xFF0C;386 &#x8868;&#x793A; 32 &#x4F4D;&#x7684;&#x67B6;&#x6784;&#xFF0C;amd64 &#x8868;&#x793A;&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x5728; 64 &#x4F4D;&#x7684;&#x67B6;&#x6784;&#x4E0A;&#x3002;</p>
+<p style="margin: 0 0 20px;">macosx &#x7684;&#x610F;&#x601D;&#x5C31;&#x662F;&#x82F9;&#x679C;&#x7684; Mac &#x7535;&#x8111;&#xFF0C;OSX &#x662F;&#x7535;&#x8111;&#x7684;&#x7CFB;&#x7EDF;&#x3002;&#x4E0B;&#x9762;&#x8FD8;&#x6709; windows &#xFF0C;&#x5B83;&#x4E5F;&#x5206;&#x6210; 386 &#x8FD8;&#x6709; amd64 &#x4E24;&#x79CD;&#x67B6;&#x6784;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x6211;&#x8981;&#x5728; 64 &#x4F4D;&#x7684; linux &#x7CFB;&#x7EDF;&#x4E0A;&#x4F7F;&#x7528; syncthing&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x590D;&#x5236;&#x4E00;&#x4E0B; linux-amd64 &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x4E0B;&#x8F7D;&#x5730;&#x5740; .. &#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x8FDB;&#x5165;&#x5230;&#x9879;&#x76EE;&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x786E;&#x5B9A;&#x865A;&#x62DF;&#x673A;&#x5DF2;&#x7ECF;&#x90FD;&#x542F;&#x52A8;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x5148;&#x8FDE;&#x63A5;&#x5230; web1 &#x8FD9;&#x53F0;&#x865A;&#x62DF;&#x673A;&#x4E0A;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     vagrant ssh web1</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x53BB;&#x4E0B;&#x8F7D; syncthing&#xFF0C;&#x8F93;&#x5165; wget &#x540E;&#x9762;&#x52A0;&#x4E0A;&#x521A;&#x624D;&#x590D;&#x5236;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     wget <a href="https://github.com/syncthing/syncthing/releases/download/v0.11.8/syncthing-linux-amd64-v0.11.8.tar.gz" style="color: #333; text-decoration: none;">https://github.com/syncthing/syncthing/releases/download/v0.11.8/syncthi...</a></p>
+<p style="margin: 0 0 20px;">&#x5B8C;&#x6210;&#x4EE5;&#x540E;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     ls</p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x6709;&#x4E2A; .tar.gz &#x7684;&#x538B;&#x7F29;&#x5305;&#xFF0C;&#x89E3;&#x538B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; tar&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     tar xzvf syncthing*</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     ls</p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x4F1A;&#x6709;&#x89E3;&#x538B;&#x4E4B;&#x540E;&#x7684; syncthing &#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x540C;&#x6837;&#x7684;&#x65B9;&#x6CD5;&#x5230; web2 &#x8FD9;&#x53F0;&#x865A;&#x62DF;&#x673A;&#x4E0A;&#xFF0C;&#x628A; syncthing &#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x5B89;&#x88C5; Syncthing</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x5148;&#x8FDB;&#x5165;&#x5230;&#x89E3;&#x538B;&#x4EE5;&#x540E;&#x7684; Syncthing &#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     cd syncthing*</p>
+<p style="margin: 0 0 20px;">&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x76EE;&#x5F55;&#x91CC;&#x7684;&#x4E1C;&#x897F;&#xFF1A; ls -l &#xFF0C;&#x8FD9;&#x91CC;&#x7684; syncthing &#x6587;&#x4EF6;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x60F3;&#x8981;&#x6267;&#x884C;&#x5B83;&#x53EF;&#x4EE5;&#x5148;&#x628A;&#x5B83;&#x590D;&#x5236;&#x5230;&#x7CFB;&#x7EDF;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x6307;&#x5B9A;&#x7684;&#x67D0;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x4E0B;&#x9762;&#xFF0C;&#x67E5;&#x770B;&#x8FD9;&#x4E9B;&#x76EE;&#x5F55;&#xFF0C;&#x8F93;&#x5165;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     echo $PATH</p>
+<p style="margin: 0 0 20px;">&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x653E;&#x5230; /usr/bin &#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x4E0B;&#x9762;&#xFF0C;&#x9700;&#x8981;&#x7BA1;&#x7406;&#x5458;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x5148;&#x8F93;&#x5165;&#x4E00;&#x4E2A; sudo&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     sudo cp syncthing /usr/bin/</p>
+<p style="margin: 0 0 20px;">&#x5B8C;&#x6210;&#x4EE5;&#x540E;&#xFF0C;&#x6267;&#x884C;&#x4E00;&#x4E0B; syncthing&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x542F;&#x52A8;&#x5B83;&#x3002;&#x9ED8;&#x8BA4;&#x5B83;&#x53EA;&#x80FD;&#x5728;&#x5F53;&#x524D;&#x4F1A;&#x8BDD;&#x4E0A;&#x542F;&#x52A8;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5982;&#x679C;&#x4F60;&#x6309;&#x4E00;&#x4E0B; ctrl + C&#xFF0C;Syncthing &#x5C31;&#x4F1A;&#x505C;&#x6B62;&#x8FD0;&#x884C;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x5728;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x6BD4;&#x5982; My ID &#xFF0C;&#x5C31;&#x662F;&#x8FD9;&#x53F0;&#x673A;&#x5668;&#x7684; ID &#x53F7;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B83;&#x53BB;&#x914D;&#x7F6E;&#x4E00;&#x4E0B; Syncthing &#x6765;&#x540C;&#x6B65;&#x3002;&#x7B2C;&#x4E00;&#x6B21;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6CA1;&#x6709;&#x627E;&#x5230; config &#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x53BB;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4F4D;&#x7F6E;&#x662F;&#x5F53;&#x524D;&#x7528;&#x6237;&#x4E3B;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x7684; .config &#xFF0C;syncthing &#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x662F; config.xml &#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>Syncthing &#x7684; Web &#x56FE;&#x5F62;&#x754C;&#x9762;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">Syncthing &#x4F1A;&#x81EA;&#x5E26;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x914D;&#x7F6E;&#x7684;&#x56FE;&#x5F62;&#x754C;&#x9762;&#xFF0C;&#x4E0D;&#x8FC7;&#x9ED8;&#x8BA4;&#x4F60;&#x53EA;&#x80FD;&#x5728;&#x672C;&#x673A;&#x4E0A;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#xFF0C;&#x8FD9;&#x91CC;&#x4F60;&#x4F1A;&#x770B;&#x5230;&#xFF0C;&#x8FD9;&#x4E2A; Web GUI &#x7684;&#x5730;&#x5740;&#x662F; 127.0.0.1 &#x540E;&#x9762;&#x8FD8;&#x6709;&#x4E2A;&#x7AEF;&#x53E3;&#x53F7;&#x3002;&#x4E0B;&#x9762;&#x53BB;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8FDC;&#x7A0B;&#x6253;&#x5F00;&#x8FD9;&#x4E2A; Web &#x56FE;&#x5F62;&#x754C;&#x9762;&#x3002;</p>
+<p style="margin: 0 0 20px;">ctrl + C&#xFF0C;&#x5148;&#x505C;&#x6B62;&#x4E00;&#x4E0B;&#x3002; &#x7136;&#x540E;&#x7F16;&#x8F91;&#x4E00;&#x4E0B; Syncthing &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     vi /home/vagrant/.config/syncthing/config.xml</p>
+<p style="margin: 0 0 20px;">&#x6D4F;&#x89C8;&#x5230; gui &#x8FD9;&#x4E2A;&#x6807;&#x7B7E;&#xFF0C; enabled &#xFF0C;&#x8868;&#x793A;&#x542F;&#x7528; Web &#x56FE;&#x5F62;&#x914D;&#x7F6E;&#x754C;&#x9762;&#x3002;&#x4E0B;&#x9762;&#x7684; address &#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x4FEE;&#x6539;&#x4E00;&#x4E0B; ... &#x628A; 127.0.0.1 &#x6362;&#x6210; 0.0.0.0 &#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x4E00;&#x4E0B;&#x540E;&#x9762;&#x7684;&#x8FD9;&#x4E2A;&#x7AEF;&#x53E3;&#x53F7;&#x3002;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5916;&#x90E8;&#x7684; IP &#x5730;&#x5740;&#x8BBF;&#x95EE;&#x5230; Syncthing &#x7684;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x4E86;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x4FDD;&#x5B58;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x542F;&#x52A8;&#x4E00;&#x4E0B; Syncthing &#x3002; &#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x8F93;&#x5165; web1 &#x8FD9;&#x53F0;&#x865A;&#x62DF;&#x673A;&#x7684; IP &#x5730;&#x5740;&#xFF0C;192.168.33.61&#xFF0C;&#x540E;&#x9762;&#x518D;&#x52A0;&#x4E0A;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;8384&#x3002;</p>
+<p style="margin: 0 0 20px;">     <a href="http://192.168.33.61:8384" style="color: #333; text-decoration: none;">http://192.168.33.61:8384</a></p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x663E;&#x793A;&#x7684;&#x5C31;&#x662F; Syncthing &#x7684; Web &#x56FE;&#x5F62;&#x754C;&#x9762;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#x53BB;&#x914D;&#x7F6E; Syncthing &#xFF0C;&#x53BB;&#x76D1;&#x89C6;&#x6587;&#x4EF6;&#x7684;&#x540C;&#x6B65;&#x72B6;&#x6001;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x5F00;&#x673A;&#x81EA;&#x52A8;&#x542F;&#x52A8; Syncthing</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x9ED8;&#x8BA4; Syncthing &#x53EA;&#x4F1A;&#x5728;&#x5F53;&#x524D;&#x4F1A;&#x8BDD;&#x4E2D;&#x542F;&#x52A8;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5982;&#x679C;&#x4F60;&#x7ED3;&#x675F;&#x4E86;&#x5F53;&#x524D;&#x7684;&#x4F1A;&#x8BDD;&#xFF0C;&#x5B83;&#x4E5F;&#x5C31;&#x4F1A;&#x505C;&#x6B62;&#x8FD0;&#x884C;&#x4E86;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x53BB;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#xFF0C;&#x8BA9;&#x5B83;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x5728;&#x540E;&#x53F0;&#x53BB;&#x8FD0;&#x884C;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x8BA9;&#x5B83;&#x5F00;&#x673A;&#x81EA;&#x52A8;&#x542F;&#x52A8;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x8FDB;&#x5165;&#x5230;&#x89E3;&#x538B;&#x4E4B;&#x540E;&#x7684; Syncthing &#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A; etc &#x4E0B;&#x9762;&#xFF0C;&#x6709;&#x4E00;&#x4E9B;&#x4E1C;&#x897F;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9; Syncthing &#x5728;&#x540E;&#x53F0;&#x53BB;&#x8FD0;&#x884C;&#x3002;</p>
+<p style="margin: 0 0 20px;">     ls -l etc</p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x6211;&#x8981;&#x5728; linux &#x4E0A;&#x53BB;&#x914D;&#x7F6E;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4E00;&#x4E0B; linux-systemd &#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x7684;&#x4E1C;&#x897F;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     ls -l etc/linux-systemd</p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x53C8;&#x6709;&#x4E24;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;system &#x8FD8;&#x6709; user &#xFF0C;&#x5B83;&#x4EEC;&#x91CC;&#x9762;&#x5206;&#x522B;&#x6709;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#x8BA9; syncthing &#x4F5C;&#x4E3A;&#x7CFB;&#x7EDF;&#x670D;&#x52A1;&#x4F7F;&#x7528;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x5B83;&#x4F5C;&#x4E3A;&#x7528;&#x6237;&#x7684;&#x670D;&#x52A1;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x8981;&#x8BA9;&#x5B83;&#x53EF;&#x4EE5;&#x5F00;&#x673A;&#x81EA;&#x52A8;&#x542F;&#x52A8;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x4F7F;&#x7528; system &#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x7684;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     ls -l etc/linux-systemd/system</p>
+<p style="margin: 0 0 20px;">&#x628A;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x7684; syncthing@.service &#x6587;&#x4EF6;&#xFF0C;&#x590D;&#x5236;&#x5230;&#x7CFB;&#x7EDF;&#x5B9E;&#x4F8B;&#x52A0;&#x8F7D;&#x7684;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x5230;&#x7BA1;&#x7406;&#x6743;&#x9650;&#xFF0C;&#x8F93;&#x5165; sudo &#xFF0C;&#x7528; cp &#x53BB;&#x590D;&#x5236;&#xFF0C;&#x5730;&#x5740;&#x662F;<br/>
+etc/linux-systemd/system/syncthing@.service&#xFF0C;&#x590D;&#x5236;&#x5230; /etc/systemd/system/ &#xFF1A;</p>
+<p style="margin: 0 0 20px;">     sudo cp etc/linux-systemd/system/syncthing@.service /etc/systemd/system/</p>
+<p style="margin: 0 0 20px;">&#x5B8C;&#x6210;&#x4EE5;&#x540E;&#x53EF;&#x4EE5;&#x7528;&#x53BB;&#x542F;&#x7528;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x53BB;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x6765;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x4E0A;&#x5DF2;&#x6709;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x7528; vagrant &#x7528;&#x6237;&#x53BB;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     sudo systemctl enable <a href="mailto:syncthing@vagrant.service" style="color: #333; text-decoration: none;">syncthing@vagrant.service</a></p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x6837; syncthing &#x53EF;&#x4EE5;&#x5728;&#x5F00;&#x673A;&#x7684;&#x65F6;&#x5019;&#x7528; vagrant &#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x81EA;&#x52A8;&#x8FD0;&#x884C;&#xFF0C;&#x518D;&#x53BB;&#x624B;&#x5DE5;&#x542F;&#x52A8;&#x4E00;&#x4E0B;&#x5B83;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     sudo systemctl start <a href="mailto:syncthing@vagrant.service" style="color: #333; text-decoration: none;">syncthing@vagrant.service</a></p>
+<p style="margin: 0 0 20px;">&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x670D;&#x52A1;&#x5F53;&#x524D;&#x7684;&#x72B6;&#x6001;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     sudo systemctl status <a href="mailto:syncthing@vagrant.service" style="color: #333; text-decoration: none;">syncthing@vagrant.service</a></p>
+<p style="margin: 0 0 20px;">&#x663E;&#x793A;&#x7684;&#x662F; running &#xFF0C;&#x8868;&#x793A;&#x5B83;&#x5DF2;&#x7ECF;&#x5728;&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x4E86;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x540C;&#x6B65;&#x6587;&#x4EF6;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x5148;&#x6253;&#x5F00;&#x5728;&#x4E24;&#x53F0;&#x865A;&#x62DF;&#x673A;&#x4E0A;&#x914D;&#x7F6E;&#x7684; Syncthing &#x7684; Web &#x754C;&#x9762;&#x3002; &#x5982;&#x679C;&#x4F60;&#x914D;&#x7F6E;&#x4E86;&#x4E3B;&#x673A;&#x540D;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#x4E0A;&#x4F1A;&#x663E;&#x793A;&#x8FD9;&#x4E2A;&#x4E3B;&#x673A;&#x540D;&#x3002; &#x8FD9;&#x91CC;&#x5DE6;&#x8FB9;&#x663E;&#x793A;&#x7684;&#x5171;&#x4EAB;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x53F3;&#x8FB9;&#x662F;&#x53EF;&#x7528;&#x7684;&#x8BBE;&#x5907;&#xFF0C;&#x9ED8;&#x8BA4;&#x53EA;&#x6709;&#x5F53;&#x524D;&#x8FD9;&#x53F0;&#x4E3B;&#x673A;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x5148;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#xFF0C;&#x5B83;&#x7684;&#x8DEF;&#x5F84;&#x662F; /home/vagrant/Sync&#xFF0C;&#x5E94;&#x8BE5;&#x5C31;&#x662F;&#x8FD0;&#x884C; Syncthing &#x7684;&#x7528;&#x6237;&#x4E3B;&#x76EE;&#x5F55;&#x4E0B;&#x7684; Sync &#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x53BB;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#xFF0C;&#x5728; web1 &#x4E0E; web2 &#x8FD9;&#x4E24;&#x53F0;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x540C;&#x6B65;&#x5728;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x5728; web1 &#x4E0A;&#x7684;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x91CC;&#x7684;&#x4E1C;&#x897F;&#x6709;&#x66F4;&#x65B0;&#xFF0C;&#x4F1A;&#x540C;&#x6B65;&#x5230; web2 &#x7684;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#xFF0C;&#x5728; web2 &#x4E0A;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x53D8;&#x5316;&#x4E5F;&#x4F1A;&#x540C;&#x6B65;&#x5230; web1 &#x7684;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x91CC;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x9996;&#x5148;&#x4F60;&#x8981;&#x544A;&#x8BC9;&#x4ED6;&#x4EEC;&#x5BF9;&#x65B9;&#x662F;&#x8C01;&#xFF0C;&#x6253;&#x5F00; Actions &#xFF0C;&#x9009;&#x62E9; &#x663E;&#x793A;&#x8BBE;&#x5907; ID &#xFF0C;&#x8FD9;&#x4E2A; ID &#x8868;&#x793A;&#x7684;&#x5C31;&#x662F; web1 &#x8FD9;&#x53F0;&#x4E3B;&#x673A;&#x3002;&#x590D;&#x5236;&#x4E00;&#x4E0B; ...   &#x6253;&#x5F00; web2 &#xFF0C;&#x70B9;&#x51FB; &#x6DFB;&#x52A0;&#x8BBE;&#x5907;&#xFF0C;&#x628A;&#x521A;&#x624D;&#x590D;&#x5236;&#x7684; ID &#x53F7;&#x7C98;&#x8D34;&#x5230;&#x8FD9;&#x4E2A;&#x8BBE;&#x5907;&#x6807;&#x8BC6;&#x91CC;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x8BBE;&#x5907;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x8F93;&#x5165; web1 &#xFF0C;&#x5728;&#x5730;&#x5740;&#x5217;&#x8868;&#x8FD9;&#x91CC;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F; dynamic&#xFF0C;&#x610F;&#x601D;&#x662F; Syncthing &#x4F1A;&#x53BB;&#x81EA;&#x52A8;&#x53BB;&#x641C;&#x7D22;&#x8BBE;&#x5907;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; ip &#x52A0;&#x7AEF;&#x53E3;&#x53F7;&#x7684;&#x65B9;&#x5F0F;&#x786E;&#x5207;&#x7684;&#x544A;&#x8BC9; Syncthing web1 &#x8FD9;&#x53F0;&#x8BBE;&#x5907;&#x662F;&#x8C01;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x5728;&#x4E0B;&#x9762;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4E00;&#x4E0B;&#x8981;&#x8DDF; web1 &#x540C;&#x6B65;&#x7684;&#x76EE;&#x5F55;&#xFF0C; &#x76EE;&#x524D;&#x8FD9;&#x91CC;&#x53EA;&#x6709;&#x4E00;&#x4E2A; default &#xFF0C;&#x8DEF;&#x5F84;&#x5C31;&#x662F;&#x4E00;&#x5F00;&#x59CB;&#x770B;&#x5230;&#x7684;&#x90A3;&#x4E2A;&#x3002;&#x52FE;&#x9009;&#x4E00;&#x4E0B;&#xFF0C;&#x7136;&#x540E;&#x70B9;&#x51FB; &#x4FDD;&#x5B58;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x9700;&#x8981;&#x91CD;&#x542F;&#x4E00;&#x4E0B; Syncthing&#xFF0C;&#x70B9;&#x51FB; &#x91CD;&#x542F; Syncthing .. &#x4E0D;&#x8FC7;&#x6211;&#x53D1;&#x73B0;&#x8FD9;&#x91CC;&#x4F1A;&#x6709;&#x70B9;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x662F;&#x53EA;&#x80FD;&#x5173;&#x95ED; Syncthing&#xFF0C;&#x4E0D;&#x80FD;&#x91CD;&#x65B0;&#x518D;&#x542F;&#x52A8;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5148;&#x5728;&#x7EC8;&#x7AEF;&#x4E0A;&#x8F93;&#x5165;&#x547D;&#x4EE4;&#x53BB;&#x91CD;&#x542F;&#x5B83;&#x3002;</p>
+<p style="margin: 0 0 20px;">     sudo systemctl restart <a href="mailto:syncthing@vagrant.service" style="color: #333; text-decoration: none;">syncthing@vagrant.service</a></p>
+<p style="margin: 0 0 20px;">&#x9700;&#x8981;&#x7A0D;&#x7B49;&#x4E00;&#x4F1A;&#x513F;&#xFF0C;Syncthing &#x4F1A;&#x6839;&#x636E;&#x8BBE;&#x5907; ID &#x81EA;&#x52A8;&#x53BB;&#x627E;&#x8BBE;&#x5907;&#x7684;&#x5730;&#x5740;&#x3002;&#x6253;&#x5F00; web1 &#x7684; Web &#x754C;&#x9762;&#xFF0C;&#x8FC7;&#x4E00;&#x4F1A;&#x513F;&#x8FD9;&#x91CC;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x63D0;&#x793A;&#xFF0C;&#x8BBE;&#x5907;&#x8BF7;&#x6C42;&#x8FDE;&#x63A5;&#xFF0C;&#x662F;&#x5426;&#x8981;&#x628A;&#x5B83;&#x6DFB;&#x52A0;&#x5230; web1 &#x8FD9;&#x53F0;&#x8BBE;&#x5907;&#x7684;&#x5217;&#x8868;&#x91CC;&#x3002;&#x70B9;&#x51FB; &#x6DFB;&#x52A0;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x8FD9;&#x91CC;&#x4F1A;&#x591A;&#x51FA;&#x4E00;&#x53F0;&#x8BBE;&#x5907;&#xFF0C;&#x5B83;&#x7684;&#x540D;&#x5B57;&#x5F00;&#x59CB;&#x4F1A;&#x662F;&#x968F;&#x673A;&#x7684;&#xFF0C;&#x8FC7;&#x4E00;&#x4F1A;&#x513F;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x8BC6;&#x522B;&#x51FA;&#x8BBE;&#x5907;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x3002;&#x8FD9;&#x91CC;&#x53C8;&#x4F1A;&#x63D0;&#x793A;&#xFF0C;web2 &#x8981;&#x5171;&#x4EAB; default &#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x662F;&#x5426;&#x5171;&#x4EAB;&#xFF0C;&#x70B9;&#x51FB; &#x5171;&#x4EAB;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x9700;&#x8981;&#x518D;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x4E00;&#x4E0B; web1 .. </p>
+<p style="margin: 0 0 20px;">     sudo systemctl restart <a href="mailto:syncthing@vagrant.service" style="color: #333; text-decoration: none;">syncthing@vagrant.service</a></p>
+<p style="margin: 0 0 20px;">&#x73B0;&#x5728;&#xFF0C; web1 &#x8FD8;&#x6709; web2 &#x8FD9;&#x4E24;&#x53F0;&#x4E3B;&#x673A;&#x4E4B;&#x95F4;&#x5C31;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x540C;&#x6B65;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x5C31;&#x662F;&#x8FD9;&#x4E2A; default &#x3002; &#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#xFF0C;&#x5148;&#x5230; web1 &#x7684;&#x8FD9;&#x4E2A;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x91CC;&#x53BB;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     cd ~/Sync<br/>
+     touch file01.txt</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     ls -l</p>
+<p style="margin: 0 0 20px;">&#x8FC7;&#x4E00;&#x4F1A;&#x513F;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4F1A;&#x540C;&#x6B65;&#x5230; web2 &#x7684;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#xFF0C;Syncthing &#x9ED8;&#x8BA4;&#x4F1A;&#x6BCF;&#x9694;&#x4E00;&#x5206;&#x949F;&#x626B;&#x63CF;&#x4E00;&#x4E0B;&#x76EE;&#x5F55;&#x91CC;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x53D8;&#x5316;&#xFF0C;&#x5C31;&#x4F1A;&#x628A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#x5230;&#x5176;&#x5B83;&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x6253;&#x5F00; web2 &#xFF0C;&#x8FDB;&#x5165;&#x5230;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     cd ~/Sync</p>
+<p style="margin: 0 0 20px;">&#x7136;&#x540E;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     ls -l</p>
+<p style="margin: 0 0 20px;">&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x5728; web1 &#x4E0A;&#x521B;&#x5EFA;&#x7684; file01.txt &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x3002; &#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x518D;&#x53BB;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     touch file02.txt</p>
+<p style="margin: 0 0 20px;">&#x56DE;&#x5230; web2 &#x7684;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#xFF0C;&#x7A0D;&#x7B49;&#x4E00;&#x4F1A;&#x513F;&#xFF0C;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     ls -l</p>
+<p style="margin: 0 0 20px;">&#x5728; web1 &#x4E0A;&#x521B;&#x5EFA;&#x7684; file02.txt &#x5DF2;&#x7ECF;&#x88AB;&#x540C;&#x6B65;&#x5230;&#x8FD9;&#x91CC;&#x4E86;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>Web &#x754C;&#x9762;&#x7684;&#x5B89;&#x5168;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x9ED8;&#x8BA4; Syncthing &#x63D0;&#x4F9B;&#x7684;&#x8FD9;&#x4E2A; Web &#x754C;&#x9762;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6253;&#x5F00;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x914D;&#x7F6E;&#x4E86; Syncthing&#xFF0C;&#x8BA9;&#x8FD9;&#x4E2A; Web &#x754C;&#x9762;&#x53EF;&#x4EE5;&#x5728;&#x8FDC;&#x7A0B;&#x6253;&#x5F00;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6240;&#x6709;&#x4EBA;&#x53EA;&#x9700;&#x8981;&#x77E5;&#x9053;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7684; IP &#x5730;&#x5740;&#xFF0C;&#x8FD8;&#x6709;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x5C31;&#x80FD;&#x6253;&#x5F00;&#x8FD9;&#x4E2A; Web &#x754C;&#x9762;&#xFF0C;&#x53BB;&#x914D;&#x7F6E;&#x4F60;&#x7684; Syncthing&#x3002; &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED9;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x767B;&#x5F55;&#x7684;&#x7528;&#x6237;&#x8FD8;&#x6709;&#x5BC6;&#x7801;&#xFF0C;&#x53EA;&#x6709;&#x8BA4;&#x8BC1;&#x901A;&#x8FC7;&#x7684;&#x4EBA;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x6253;&#x5F00;&#x4EE5;&#x540E;&#xFF0C;&#x70B9;&#x51FB; Actions&#xFF0C;&#x9009;&#x62E9; &#x8BBE;&#x7F6E;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#x8FD9;&#x53F0;&#x8BBE;&#x5907;&#xFF0C;&#x6BD4;&#x5982;&#x754C;&#x9762;&#x76D1;&#x542C;&#x7684;&#x5730;&#x5740;&#x8FD8;&#x6709;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x5728;&#x4E0B;&#x9762;&#x53EF;&#x4EE5;&#x518D;&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B;&#x767B;&#x5F55;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x8F93;&#x5165; admin ...  &#x518D;&#x8F93;&#x5165;&#x767B;&#x5F55;&#x7684;&#x5BC6;&#x7801; ... </p>
+<p style="margin: 0 0 20px;">&#x53EF;&#x4EE5;&#x518D;&#x52FE;&#x9009;&#x4E00;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528; HTTPS &#x8FDE;&#x63A5; Web &#x7BA1;&#x7406;&#x9875;&#x9762;&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x7528;&#x52A0;&#x5BC6;&#x7684;&#x65B9;&#x5F0F;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#x3002; &#x518D;&#x4FDD;&#x5B58;&#x4E00;&#x4E0B; ...  &#x9700;&#x8981;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x4E00;&#x4E0B; ..</p>
+<p style="margin: 0 0 20px;">&#x7136;&#x540E;&#x5237;&#x65B0; ..  &#x56E0;&#x4E3A;&#x4F7F;&#x7528;&#x4E86; HTTPS &#x7684;&#x65B9;&#x5F0F;&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x4E14;&#x53C8;&#x6CA1;&#x6709;&#x4FE1;&#x4EFB;&#x7684;&#x673A;&#x6784;&#x7B7E;&#x7684;&#x8BC1;&#x4E66;&#xFF0C;&#x6240;&#x4EE5;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x63D0;&#x793A; ..  &#x70B9;&#x51FB; &#x9AD8;&#x7EA7; ..   &#x7EE7;&#x7EED;&#x524D;&#x5F80; ..</p>
+<p style="margin: 0 0 20px;">&#x4F1A;&#x5F39;&#x51FA;&#x767B;&#x5F55;&#x7684;&#x5BF9;&#x8BDD;&#x6846;&#xFF0C;&#x8F93;&#x5165;&#x521A;&#x624D;&#x8BBE;&#x7F6E;&#x7684;&#x7528;&#x6237;&#x540D; .. admin&#xFF0C;&#x518D;&#x8F93;&#x5165;&#x4ED6;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x70B9;&#x51FB; &#x767B;&#x5F55;&#x3002; &#x6210;&#x529F;&#x4EE5;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x914D;&#x7F6E;&#x7684; Web &#x754C;&#x9762;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x7528; SSH &#x901A;&#x9053;&#x5728;&#x672C;&#x5730;&#x8BBF;&#x95EE; Syncthing &#x7684; Web &#x754C;&#x9762;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x4FEE;&#x6539;&#x4E86; Syncthing &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x8BA9;&#x5B83;&#x7684; Web &#x754C;&#x9762;&#x53EF;&#x4EE5;&#x5728;&#x8FDC;&#x7A0B;&#x901A;&#x8FC7;&#x4E3B;&#x673A;&#x7684; IP &#x5730;&#x5740;&#x8BBF;&#x95EE;&#x5230;&#xFF0C;&#x7136;&#x540E;&#x53C8;&#x914D;&#x7F6E;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x5728;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#x4E4B;&#x524D;&#x8981;&#x901A;&#x8FC7;&#x8BA4;&#x8BC1;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x5982;&#x679C;&#x4F60;&#x8FD8;&#x662F;&#x6709;&#x70B9;&#x62C5;&#x5FC3;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F00;&#x4E00;&#x4E2A; SSH &#x901A;&#x9053;&#xFF0C;&#x8FD9;&#x6837;&#x5728;&#x672C;&#x5730;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x7528; localhost &#x52A0;&#x4E0A;&#x5BF9;&#x5E94;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x8BBF;&#x95EE;&#x5230;&#x8FD9;&#x4E2A; Web &#x754C;&#x9762;&#x3002;&#x5728;&#x65AD;&#x5F00;&#x8FD9;&#x4E2A; SSH &#x901A;&#x9053;&#x4EE5;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#x5C31;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x5230;&#x4E86;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x5982;&#x679C;&#x4F60;&#x6253;&#x7B97;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x518D;&#x53BB;&#x914D;&#x7F6E;&#x4E00;&#x4E0B; Syncthing&#xFF0C;&#x8BA9;&#x5B83;&#x53EA;&#x80FD;&#x5728;&#x672C;&#x673A;&#x6253;&#x5F00;&#x3002; &#x4E0B;&#x9762;&#x53BB;&#x5F00;&#x542F;&#x4E00;&#x4E2A; SSH &#x901A;&#x9053;&#xFF0C;&#x8F93;&#x5165; ssh &#xFF0C;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x5927;&#x5199;&#x7684; L &#x9009;&#x9879; .. &#x8868;&#x793A;&#x8981;&#x53BB;&#x7ED1;&#x5B9A;&#x5730;&#x5740;&#x3002; &#x7136;&#x540E;&#x662F;&#x5728;&#x672C;&#x673A;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x8FD9;&#x91CC;&#x8F93;&#x5165; 9090 &#xFF0C;&#x5192;&#x53F7;&#xFF0C;&#x63A5;&#x7740;&#x662F;&#x4E3B;&#x673A;&#xFF0C;&#x8F93;&#x5165; 127.0.0.1 &#xFF0C;&#x5192;&#x53F7;&#xFF0C;&#x518D;&#x8F93;&#x5165;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x8FD9;&#x4E2A; Web &#x754C;&#x9762;&#x662F;&#x5728; 8384 &#x8FD9;&#x4E2A;&#x7AEF;&#x53E3;&#x4E0A;&#x8BBF;&#x95EE; ..</p>
+<p style="margin: 0 0 20px;">&#x540E;&#x9762;&#x662F; SSH &#x767B;&#x5F55;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x6211;&#x4EEC;&#x7528; vagrant &#x8FD9;&#x4E2A;&#x7528;&#x6237;&#xFF0C;&#x767B;&#x5F55;&#x5230; 192.168.33.61 &#xFF0C;&#x8FD9;&#x4E2A;&#x662F; web1 &#x8FD9;&#x53F0;&#x4E3B;&#x673A;&#x7684; IP &#x5730;&#x5740; ..  </p>
+<p style="margin: 0 0 20px;">     ssh -L 9090:127.0.0.1:8384 vagrant@192.168.33.61</p>
+<p style="margin: 0 0 20px;">&#x6267;&#x884C;&#x4E00;&#x4E0B; ...  &#x8F93;&#x5165; yes ... &#x518D;&#x8F93;&#x5165; vagrant &#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;&#xFF0C; &#x9ED8;&#x8BA4;&#x5C31;&#x662F; vagrant &#x3002; &#x5B8C;&#x6210;&#x4EE5;&#x540E;&#x4F1A; SSH &#x5230; web1 &#x8FD9;&#x53F0;&#x4E3B;&#x673A; .. &#x4E0B;&#x9762;&#x518D;&#x6253;&#x5F00;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x8F93;&#x5165; localhost:9090 .. </p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x6253;&#x5F00;&#x7684;&#x5C31;&#x662F; web1 &#x8FD9;&#x53F0;&#x4E3B;&#x673A;&#x4E0A;&#x7684; Syncthing &#x7684; Web &#x754C;&#x9762;&#x3002; &#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x9000;&#x51FA; SSH &#x767B;&#x5F55; ... &#x8F93;&#x5165; exit &#x3002; &#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#x4F1A;&#x7ACB;&#x5373;&#x663E;&#x793A;&#x670D;&#x52A1;&#x5DF2;&#x7ECF;&#x65AD;&#x5F00;&#x4E86;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x7248;&#x672C;&#x63A7;&#x5236;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x4E3A;&#x540C;&#x6B65;&#x7684;&#x76EE;&#x5F55;&#x542F;&#x7528;&#x7248;&#x672C;&#x63A7;&#x5236;&#x4EE5;&#x540E;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x91CC;&#x88AB;&#x5220;&#x9664;&#x6216;&#x8005;&#x88AB;&#x66FF;&#x6362;&#x7684;&#x6587;&#x4EF6;&#x4F1A;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x5730;&#x65B9;&#x4FDD;&#x5B58;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F1A;&#x653E;&#x5230;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x7684; .stversions &#x8FD9;&#x91CC;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x6253;&#x5F00; web1&#xFF0C;&#x627E;&#x5230; default &#x8FD9;&#x4E2A;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#xFF0C;&#x70B9;&#x51FB; &#x9009;&#x9879;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x51E0;&#x79CD;&#x7248;&#x672C;&#x63A7;&#x5236;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;&#x4E0D;&#x4F7F;&#x7528;&#x7248;&#x672C;&#x63A7;&#x5236;&#xFF0C;&#x7B80;&#x6613;&#x7248;&#x672C;&#x63A7;&#x5236;&#xFF0C;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x4F1A;&#x4FDD;&#x7559; 5 &#x4E2A;&#x7248;&#x672C;&#x3002;&#x9636;&#x6BB5;&#x7248;&#x672C;&#x63A7;&#x5236;&#xFF0C;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x4E00;&#x70B9;&#xFF0C;&#x6EE1;&#x8DB3;&#x4E00;&#x4E9B;&#x6761;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5220;&#x9664;&#x6389;&#x5386;&#x53F2;&#x7248;&#x672C;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x53BB;&#x5B9A;&#x4E49;&#x6587;&#x4EF6;&#x5386;&#x53F2;&#x7248;&#x672C;&#x5B58;&#x50A8;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x5916;&#x90E8;&#x7248;&#x672C;&#x63A7;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5199;&#x70B9;&#x4EE3;&#x7801;&#x6765;&#x51B3;&#x5B9A;&#x600E;&#x4E48;&#x6837;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x7684;&#x5386;&#x53F2;&#x7248;&#x672C;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5148;&#x9009;&#x62E9;&#x8FD9;&#x4E2A; &#x7B80;&#x6613;&#x7248;&#x672C;&#x63A7;&#x5236;&#x3002;&#x4FDD;&#x5B58;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x4E00;&#x4E0B;&#x5728; web1 &#x4E0A;&#x7684; Syncthing &#x3002; &#x7136;&#x540E;&#x6253;&#x5F00; web2 &#xFF0C;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x91CC;&#x7684;&#x4E1C;&#x897F; ls -l &#xFF0C;&#x7136;&#x540E;&#x5220;&#x9664;&#x6389;&#x8FD9;&#x91CC;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x6587;&#x4EF6; ..  rm -rf file01.txt ...  </p>
+<p style="margin: 0 0 20px;">&#x7A0D;&#x7B49;&#x4E00;&#x4F1A;&#x513F;&#xFF0C;&#x518D;&#x56DE;&#x5230; web1 ...  &#x540C;&#x6837;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x91CC;&#x7684;&#x4E1C;&#x897F; ls -la ... &#x8FD9;&#x91CC;&#x4E5F;&#x4F1A;&#x5220;&#x9664;&#x6389;&#x5728; web2 &#x4E0A;&#x9762;&#x5220;&#x9664;&#x6389;&#x7684;&#x6587;&#x4EF6; .. &#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x521A;&#x624D;&#x542F;&#x7528;&#x4E86;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x7248;&#x672C;&#x63A7;&#x5236;&#x529F;&#x80FD;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x8FD9;&#x4E2A;&#x88AB;&#x5220;&#x9664;&#x7684;&#x6587;&#x4EF6;&#x4F1A;&#x653E;&#x5230;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x7684; .stversions &#x8FD9;&#x91CC;&#x3002;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x91CC;&#x7684;&#x4E1C;&#x897F;&#x3002;</p>
+<p style="margin: 0 0 20px;">     ls -l .stversions</p>
+<p style="margin: 0 0 20px;">&#x4F60;&#x4F1A;&#x770B;&#x5230;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5E26; file01 &#x524D;&#x7F00;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x540E;&#x9762;&#x662F;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5728;&#x88AB;&#x5220;&#x9664;&#x6216;&#x8005;&#x66FF;&#x6362;&#x4E4B;&#x524D;&#x7684;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x95F4;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x5FFD;&#x7565;&#x7684;&#x6587;&#x4EF6;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x5728;&#x6BCF;&#x4E2A;&#x540C;&#x6B65;&#x7684;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#x90FD;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x4E0D;&#x60F3;&#x540C;&#x6B65;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x5217;&#x8868;&#xFF0C;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x5728;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB;&#x540C;&#x6B65;&#x3002;&#x6253;&#x5F00; web1 &#x8FD9;&#x53F0;&#x4E3B;&#x673A;&#x7684;&#x7BA1;&#x7406;&#x754C;&#x9762;&#x3002;&#x627E;&#x5230; default &#x8FD9;&#x4E2A;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#xFF0C;&#x70B9;&#x51FB; &#x9009;&#x9879; &#x3002;</p>
+<p style="margin: 0 0 20px;">&#x70B9;&#x51FB; &#x5FFD;&#x7565;&#x5217;&#x8868;&#xFF0C; &#x4F1A;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x7F16;&#x8F91;&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x4F60;&#x53EF;&#x4EE5;&#x5217;&#x4E86;&#x8981;&#x5FFD;&#x7565;&#x6389;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x6BD4;&#x5982; ! &#x8868;&#x793A;&#x5426;&#x5B9A;&#xFF0C; &#x4E00;&#x4E2A; * &#x53F7;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5C42;&#x7EA7;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x4E24;&#x4E2A; * &#x53F7;&#x8868;&#x793A;&#x591A;&#x7EA7;&#x522B;&#x76EE;&#x5F55;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x7684;&#x5185;&#x5BB9;&#x4F1A;&#x4FDD;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x53EB; .stignore &#x7684;&#x6587;&#x4EF6;&#x91CC;&#xFF0C;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x662F;&#x5728;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x3002; &#x5148;&#x8F93;&#x5165;&#x4E00;&#x4E2A; log &#xFF0C;&#x8868;&#x793A;&#x8981;&#x5FFD;&#x7565;&#x6389; log &#x6587;&#x4EF6;&#x6216;&#x8005;&#x76EE;&#x5F55;&#xFF0C;&#x5982;&#x679C;&#x53EA;&#x60F3;&#x5FFD;&#x7565;&#x6389; Log &#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x7684;&#x6240;&#x6709;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5B83;&#x540E;&#x9762;&#x518D;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A; / &#x3002;</p>
+<p style="margin: 0 0 20px;">&#x53E6;&#x8D77;&#x4E00;&#x884C;&#xFF0C;&#x518D;&#x8F93;&#x5165;&#x4E00;&#x4E2A; secret .. &#x8868;&#x793A;&#x8981;&#x5FFD;&#x7565;&#x6389;&#x540D;&#x5B57;&#x662F; secret &#x7684;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x76EE;&#x5F55;&#x3002; &#x4FDD;&#x5B58; &#xFF0C;&#x518D;&#x70B9;&#x4E00;&#x4E0B; &#x4FDD;&#x5B58; ... &#x7136;&#x540E;&#x9700;&#x8981;&#x518D;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x4E00;&#x4E0B; Syncthing &#x3002;</p>
+<p style="margin: 0 0 20px;">&#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x6253;&#x5F00;&#x8FDE;&#x63A5;&#x5230; web2 &#x7684;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x3002;&#x8FDB;&#x5165;&#x5230;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x4EE5;&#x540E;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#xFF0C;&#x547D;&#x540D;&#x4E3A; log ..</p>
+<p style="margin: 0 0 20px;">     mkdir log</p>
+<p style="margin: 0 0 20px;">&#x7136;&#x540E;&#x5728;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x4E0B;&#x9762;&#x518D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     touch log/01.log</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x547D;&#x540D;&#x4E3A; secret</p>
+<p style="margin: 0 0 20px;">     touch secret</p>
+<p style="margin: 0 0 20px;">&#x7A0D;&#x7B49;&#x4E00;&#x4F1A;&#x513F;&#xFF0C;&#x518D;&#x56DE;&#x5230; web1 &#x3002;&#x8FDB;&#x5165;&#x5230;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#xFF0C;&#x67E5;&#x770B;&#x4E00;&#x4E0B; ..  &#x8FD9;&#x91CC;&#x5E76;&#x6CA1;&#x6709;&#x628A;&#x521A;&#x624D;&#x5728; web2 &#x4E0A;&#x521B;&#x5EFA;&#x7684;&#x4E1C;&#x897F;&#x540C;&#x6B65;&#x8FC7;&#x6765;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x914D;&#x7F6E;&#x4E86; web1 &#x7684;&#x8FD9;&#x4E2A;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#xFF0C;&#x8BA9;&#x5B83;&#x5FFD;&#x7565;&#x6389;&#x8FD9;&#x4E9B;&#x4E1C;&#x897F;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x56DE;&#x5230; web1 &#x7684; Web &#x7BA1;&#x7406;&#x754C;&#x9762; ... &#x5728; default &#x8FD9;&#x4E2A;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#xFF0C;&#x70B9;&#x51FB; &#x672A;&#x540C;&#x6B65; &#x540E;&#x9762;&#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x4F1A;&#x663E;&#x793A;&#x51FA;&#x6CA1;&#x6709;&#x540C;&#x6B65;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x76EE;&#x5F55;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x4E3B;&#x76EE;&#x5F55;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x5982;&#x679C;&#x4F60;&#x628A;&#x4E00;&#x4E2A;&#x540C;&#x6B65;&#x7684;&#x76EE;&#x5F55;&#x8BBE;&#x7F6E;&#x6210; Folder Master &#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E3B;&#x76EE;&#x5F55;&#xFF0C;&#x8FD9;&#x6837;&#x5728;&#x5176;&#x5B83;&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x53D8;&#x5316;&#x5C31;&#x4E0D;&#x4F1A;&#x540C;&#x6B65;&#x5230;&#x8FD9;&#x4E2A;&#x4E3B;&#x76EE;&#x5F55;&#x91CC;&#x9762;&#xFF0C;&#x5728;&#x4E3B;&#x76EE;&#x5F55;&#x91CC;&#x7684;&#x53D8;&#x5316;&#x4F1A;&#x540C;&#x6B65;&#x5230;&#x5176;&#x5B83;&#x6240;&#x6709;&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x5148;&#x6253;&#x5F00; web1 &#x8FD9;&#x53F0;&#x4E3B;&#x673A;&#x7684;&#x914D;&#x7F6E;&#x754C;&#x9762;&#xFF0C; &#x627E;&#x5230; default &#x8FD9;&#x4E2A;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#xFF0C;&#x70B9;&#x51FB; &#x9009;&#x9879; ..  &#x52FE;&#x9009;&#x4E00;&#x4E0B;&#x8FD9;&#x91CC;&#x7684; &#x4E3B;&#x6587;&#x4EF6;&#x5939; &#x3002;&#x7136;&#x540E; &#x4FDD;&#x5B58; &#x4E00;&#x4E0B;&#x3002;&#x4FEE;&#x6539;&#x4E86;&#x914D;&#x7F6E;&#x4EE5;&#x540E;&#x9700;&#x8981;&#x91CD;&#x542F; Syncthing &#xFF0C;&#x6709;&#x65F6;&#x5019;&#x6211;&#x53D1;&#x73B0;&#x5728; Web &#x754C;&#x9762;&#x4E0A;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x91CD;&#x542F;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5230;&#x547D;&#x4EE4;&#x884C;&#x4E0B;&#x9762;&#x53BB;&#x91CD;&#x542F;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x8FD9;&#x91CC;&#x518D;&#x6253;&#x5F00; web2 &#x7684;&#x8FD9;&#x4E2A; default &#x540C;&#x6B65;&#x76EE;&#x5F55;&#xFF0C;&#x8DEF;&#x5F84;&#x5C31;&#x662F;&#x7528;&#x6237;&#x4E3B;&#x76EE;&#x5F55;&#x4E0B;&#x7684; Sync &#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x3002;  </p>
+<p style="margin: 0 0 20px;">     cd ~/Sync</p>
+<p style="margin: 0 0 20px;">&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     ls -l</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x53BB;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6587;&#x4EF6; ..  </p>
+<p style="margin: 0 0 20px;">     touch file03.txt</p>
+<p style="margin: 0 0 20px;">&#x56DE;&#x5230; web1&#xFF0C;&#x540C;&#x6837;&#x8FDB;&#x5165;&#x5230; default &#x8FD9;&#x4E2A;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x7684;&#x4E0B;&#x9762;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x628A;&#x5B83;&#x8BBE;&#x7F6E;&#x6210;&#x4E86;&#x4E00;&#x4E2A; &#x4E3B;&#x76EE;&#x5F55;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x4E0D;&#x4F1A;&#x540C;&#x6B65;&#x5728;&#x5176;&#x5B83;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x53D8;&#x5316;&#x3002;</p>
+<p style="margin: 0 0 20px;">     ls -l</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x56DE;&#x5230; web1 &#x7684; Web &#x754C;&#x9762;&#x3002;&#x5728; &#x672A;&#x540C;&#x6B65; &#x8FD9;&#x91CC;&#xFF0C;&#x4F1A;&#x663E;&#x793A;&#x51FA;&#x6CA1;&#x6709;&#x540C;&#x6B65;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x70B9;&#x5F00;&#x540E;&#x9762;&#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5177;&#x4F53;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x5DE6;&#x4E0B;&#x89D2;&#xFF0C;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x7EA2;&#x8272;&#x7684;&#x6309;&#x94AE;&#xFF0C;&#x663E;&#x793A;&#x7684;&#x662F; &#x64A4;&#x9500;&#x6539;&#x53D8;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x70B9;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x6309;&#x94AE;&#x4F1A;&#x62B9;&#x6389;&#x5728;&#x5176;&#x5B83;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x5316;&#x3002; &#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x6253;&#x5F00; web2&#xFF0C;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x4E1C;&#x897F;&#xFF1A; ls -l &#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x4E4B;&#x524D;&#x5728;&#x8FD9;&#x91CC;&#x521B;&#x5EFA;&#x7684; file03.txt &#x5C31;&#x4E0D;&#x89C1;&#x4E86;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x5B9E;&#x65F6;&#x540C;&#x6B65;&#xFF1A;syncthing-inotify</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">Syncthing &#x7684;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x4F1A;&#x6BCF;&#x95F4;&#x9694;&#x4E00;&#x65AD;&#x65F6;&#x95F4;&#x626B;&#x63CF;&#x4E00;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x95F4;&#x9694;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x7684;&#xFF0C;&#x9009;&#x9879; &#x8FD9;&#x91CC;&#x53BB;&#x4FEE;&#x6539;&#xFF0C;&#x5C31;&#x662F;&#x8FD9;&#x4E2A; &#x626B;&#x63CF;&#x95F4;&#x9694;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F; 60s &#xFF0C;&#x610F;&#x601D;&#x5C31;&#x662F;&#xFF0C;60s &#x4EE5;&#x540E;&#x624D;&#x4F1A;&#x53BB;&#x626B;&#x63CF;&#x4E00;&#x4E0B;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x628A;&#x9700;&#x8981;&#x7684;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#x8FC7;&#x6765;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; syncthing-inotify&#xFF0C;&#x53BB;&#x76D1;&#x89C6;&#x76EE;&#x5F55;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x65E6;&#x53D1;&#x751F;&#x4E86;&#x53D8;&#x5316;&#xFF0C;&#x5C31;&#x4F1A;&#x7ACB;&#x5373;&#x901A;&#x77E5; Syncthing &#x53BB;&#x540C;&#x6B65;&#xFF0C;&#x57FA;&#x672C;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x5B9E;&#x65F6;&#x7684;&#x6587;&#x4EF6;&#x540C;&#x6B65;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x6253;&#x5F00; inotify &#x5728; Github &#x4E0A;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x70B9;&#x51FB; releases &#xFF0C;&#x8FD9;&#x91CC;&#x540C;&#x6837;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x9002;&#x5408;&#x5728;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x9009;&#x62E9;&#x590D;&#x5236;&#x4E00;&#x4E0B; linux-amd64 &#x8FD9;&#x4E2A;&#x7248;&#x672C; ..  </p>
+<p style="margin: 0 0 20px;"><a href="https://github.com/syncthing/syncthing-inotify" style="color: #333; text-decoration: none;">https://github.com/syncthing/syncthing-inotify</a></p>
+<p style="margin: 0 0 20px;">&#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x6253;&#x5F00; web1&#xFF0C;&#x8FDB;&#x5165;&#x5230;&#x7528;&#x6237;&#x4E3B;&#x76EE;&#x5F55;&#x7684;&#x4E0B;&#x9762;&#xFF0C;&#x53BB;&#x628A; inotify &#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     wget <a href="https://github.com/syncthing/syncthing-inotify/releases/download/v0.6.4/syncthing-inotify-linux-amd64-v0.6.4.tar.gz" style="color: #333; text-decoration: none;">https://github.com/syncthing/syncthing-inotify/releases/download/v0.6.4/...</a></p>
+<p style="margin: 0 0 20px;">&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     ls -l</p>
+<p style="margin: 0 0 20px;">&#x7136;&#x540E;&#x518D;&#x53BB;&#x89E3;&#x538B;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     tar xzvf syncthing-inotify*</p>
+<p style="margin: 0 0 20px;">&#x8FD0;&#x884C;&#x5B83;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x53EB; screen &#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x5728;&#x540E;&#x53F0;&#x53BB;&#x6267;&#x884C;&#x5E94;&#x7528;&#xFF0C;&#x5148;&#x53BB;&#x5B89;&#x88C5;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x5C0F;&#x5DE5;&#x5177;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     sudo yum install screen -y</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x53BB;&#x6267;&#x884C;&#x4E00;&#x4E0B;&#xFF0C;&#x8F93;&#x5165; screen &#xFF0C;&#x7528;&#x4E00;&#x4E2A;&#x5927;&#x5199;&#x7684; S &#x9009;&#x9879;&#xFF0C;&#x6307;&#x5B9A;&#x4E00;&#x4E0B; sockname &#xFF0C;inotify &#xFF0C;&#x518D;&#x7528;&#x4E00;&#x4E2A; -dm &#x9009;&#x9879;&#xFF0C;&#x8981;&#x6267;&#x884C;&#x7684;&#x662F;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x7684; syncthing-inotify ..</p>
+<p style="margin: 0 0 20px;">     screen -S inotify -dm ./syncthing-inotify</p>
+<p style="margin: 0 0 20px;">&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x518D;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#xFF0C;&#x786E;&#x5B9A;&#x5DF2;&#x7ECF;&#x8FD0;&#x884C;&#x4E86; inotify </p>
+<p style="margin: 0 0 20px;">     ps aux | grep inotify</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x8FDB;&#x5165;&#x5230;&#x4E00;&#x4E2A;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#x53BB;&#x8BD5;&#x4E00;&#x4E0B; ...  </p>
+<p style="margin: 0 0 20px;">     cd ~/Sync</p>
+<p style="margin: 0 0 20px;">&#x518D;&#x6253;&#x5F00; web2 &#x7684; Web &#x7BA1;&#x7406;&#x754C;&#x9762;&#xFF0C;&#x56DE;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6; ...  &#x5728;&#x8FD9;&#x4E2A; web &#x754C;&#x9762;&#x4E0A;&#xFF0C;&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x51E0;&#x4E4E;&#x662F;&#x7ACB;&#x5373;&#x8FDB;&#x884C;&#x4E86;&#x540C;&#x6B65;&#x3002; &#x6253;&#x5F00; web2 &#xFF0C;&#x8FDB;&#x5165;&#x5230;&#x540C;&#x6B65;&#x76EE;&#x5F55;&#xFF0C;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#x6587;&#x4EF6; ls -l &#xFF0C;&#x8FD9;&#x91CC;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x5728; web1 &#x4E0A;&#x521B;&#x5EFA;&#x7684;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x3002;</p>
+    
+  
+  
+  
+  
+  <br/><h3>&#x5347;&#x7EA7;</h3><br/><br/>
+  
+          
+              
+          <p style="margin: 0 0 20px;">&#x8981;&#x5347;&#x7EA7; Syncthing &#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#xFF0C;&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x5F53;&#x524D;&#x7684;&#x7248;&#x672C;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     syncthing -version </p>
+<p style="margin: 0 0 20px;">&#x7136;&#x540E;&#x518D;&#x53BB;&#x68C0;&#x67E5;&#x4E00;&#x4E0B;&#x66F4;&#x65B0;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     syncthing -upgrade-check</p>
+<p style="margin: 0 0 20px;">&#x63D0;&#x793A; No upgrade available &#xFF0C;&#x8868;&#x793A;&#x6CA1;&#x6709;&#x53EF;&#x4EE5;&#x66F4;&#x65B0;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x540E;&#x9762;&#x8FD9;&#x91CC;&#x4F1A;&#x663E;&#x793A;&#x5F53;&#x524D;&#x6211;&#x4EEC;&#x6B63;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x8FD8;&#x6709;&#x5F53;&#x524D;&#x6700;&#x65B0;&#x7684;&#x7248;&#x672C;&#x3002;</p>
+<p style="margin: 0 0 20px;">&#x5982;&#x679C;&#x8981;&#x5F3A;&#x5236;&#x5347;&#x7EA7;&#x5230;&#x67D0;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A; -upgrade-to &#xFF0C;&#x540E;&#x9762;&#x52A0;&#x4E0A; Syncthing &#x53D1;&#x5E03;&#x7684;&#x538B;&#x7F29;&#x5305;&#x7684;&#x5730;&#x5740;&#x3002;  &#x6BD4;&#x5982;&#x8FD9;&#x91CC;&#x6211;&#x590D;&#x5236;&#x4E86;&#x4E00;&#x4E2A;&#x6BD4;&#x73B0;&#x5728;&#x4F4E;&#x7684;&#x7248;&#x672C; ... </p>
+<p style="margin: 0 0 20px;">     syncthing -upgrade-to=xx</p>
+<p style="margin: 0 0 20px;">&#x63D0;&#x793A;&#x6743;&#x9650;&#x4E0D;&#x591F;&#xFF0C;&#x56E0;&#x4E3A;&#x9700;&#x8981; root &#x7528;&#x6237;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x6240;&#x4EE5;&#x5148;&#x7528;&#x4E00;&#x4E2A;&#x3000;sudo &#xFF0C;&#x7136;&#x540E;&#x518D;&#x6267;&#x884C;&#x4E00;&#x4E0B;&#x3002;&#x5B8C;&#x6210;&#x4EE5;&#x540E;&#xFF0C;&#x8FD9;&#x91CC;&#x4F1A;&#x63D0;&#x793A;&#x5347;&#x7EA7;&#x5230;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x518D;&#x68C0;&#x67E5;&#x4E00;&#x4E0B;&#x66F4;&#x65B0;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     syncthing -upgrade-check</p>
+<p style="margin: 0 0 20px;">&#x63D0;&#x793A; Upgrade available &#xFF0C;&#x6709;&#x53EF;&#x7528;&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x8981;&#x66F4;&#x65B0;&#x5230;&#x6700;&#x65B0;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x8F93;&#x5165;&#xFF1A;</p>
+<p style="margin: 0 0 20px;">     sudo syncthing -upgrade</p>
+    
+  
+  
+  
+  
+  <br/>
